@@ -282,17 +282,66 @@ PROCEED WITH REVISIONS — the work is honestly reported, the manuscript is cand
 
 ## Human counter-signature
 
-I have read the AI reviewer's response in full. The findings I accept are listed below; the findings I overrule (with reason) are listed below. I take accountability for the final disposition of this review under ICMJE authorship criterion 4.
+I have read the AI reviewer's response in full. The findings I accept are listed
+below; the findings I overrule (with reason) are listed below. I take
+accountability for the final disposition of this review under ICMJE
+authorship criterion 4.
 
 Accepted findings:
-- [item]
+- All Gate-6 §1 NOT-SATISFIED items (validation procedure not runnable from
+  bundle; evaluation protocol not fully pre-specified; bundle not satisfying
+  the bundle checklist). These are real defects that close at Gate 7.
+- All Gate-6 §2 over-claim flags: "overturns" → "challenges" in §3.4/§4.2/Table S1;
+  H1–H3 reframed to "expectations stated in build notes" with "confirmed" →
+  "consistent with"; "systematically" qualified; H × Dark-Triad coupling
+  framed as "qualitatively consistent with" not "matches/confirms"; sadism
+  null gets an alternative-explanations paragraph; "indistinguishable"
+  reframed to avoid implicit equivalence claim.
+- All Gate-6 §3 findings on the pre-registration gap. Manuscript §1.2 will
+  be reworked before any external submission.
+- All Gate-6 §4 findings on AI-use disclosure: extend §2.3 Tier-3 enumeration
+  with deviations.md, coi-disclosure_weakley.md, neurips-checklist.md,
+  PROVENANCE.md, replication-log.md, code/README.md, data/README.md. Add the
+  additional Tier-4 candidate framings flagged in §4 (sycophancy methodological
+  reminder; multi-layer recommendation; publishability assessment).
+- All Gate-6 §5 reproducibility-bundle defects. Gate-7 finalisation is a hard
+  blocker for arXiv posting.
+- All Gate-6 §6 dual-use findings. Add a Broader Impacts subsection (§4.6 or §11)
+  before any external release; sycophancy sign-flip gets a deployment-warning
+  annotation.
+- All Gate-6 §7 COI findings: add GitHub to §2.1; explicitly note the absence
+  of the 2026 annual COI snapshot and schedule it; register ORCID before
+  external submission.
+- All Gate-6 §8 internal-consistency findings: honesty_humility cosines
+  corrected (−0.32 / −0.32 / −0.26 not three identical); dual-judge disclosed
+  in §2.6; seeds.json TODO pointer in PROVENANCE softened; openness probe-
+  count clarification added.
+- All Gate-6 §9 reservations: no Gate-1/-2/-3 artifacts for this paper is a
+  one-time pre-adoption exception; self-critique committed as
+  self-critique_pre-Gate-6.md (closed); orthogonalisation report's 9-vs-24
+  scope explicitly named in §2.7; κ ≥ 0.60 gate justification added to §2.4;
+  operational-research-tooling claim reconciled with the commercial-product COI.
 
 Overruled findings:
-- [item] — reason: [why]
+- None.
 
 Required actions before release:
-- [action] — owner: [name] — by: [date]
+- v1 manuscript revision (categories 1, 4, and parts of 5 from Gate-6 §10) —
+  pre-arXiv, target this week — owner: R. Weakley, drafted by Claude with
+  human review and approval per existing Tier 3/4 AI-use protocol.
+- v2 manuscript additions (statistical-significance reporting; figures;
+  real bibliography) — pre-TMLR, target ~1 month — owner: R. Weakley.
+- Gate-7 reproducibility-bundle finalisation (vendor or submodule source
+  code; real `make replicate`; one end-to-end run logged; lift seeds.json
+  TODOs) — pre-arXiv (access-on-request acceptable for arXiv; public for
+  Tier 2+) — owner: R. Weakley.
+- Prompt-archive deposition at publication folder's prompts/ subdirectory
+  — pre-arXiv — owner: R. Weakley, requires Cowork-session export.
+- Annual 2026 COI snapshot at coi/2026_founder-disclosure.md — before any
+  external submission — owner: R. Weakley.
+- ORCID registration — before any peer-reviewed venue submission — owner:
+  R. Weakley.
 
-Counter-signed by: [NAME]
-Date: [YYYY-MM-DD]
-Disposition: [PROCEED / PROCEED WITH REVISIONS / HOLD / ABANDON OR RESCOPE]
+Counter-signed by: Rick Weakley
+Date: 2026-05-24
+Disposition: PROCEED WITH REVISIONS
