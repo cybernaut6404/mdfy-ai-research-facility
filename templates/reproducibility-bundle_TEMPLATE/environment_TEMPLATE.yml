@@ -1,0 +1,55 @@
+# Reproducibility-bundle conda environment — TEMPLATE.
+# Copy to `reproducibility-bundle/environment.yml` and customise.
+#
+# Top-level dependencies pinned to known versions. Transitive-dependency
+# lockfile (uv.lock or conda-lock.yml) is required before any external
+# submission — lift from the source repos' lockfiles at Gate 7.
+#
+# Tested on: [list platforms tested]
+# Python: [exact version]
+
+name: [PROJECT_SLUG]-replication
+channels:
+  - conda-forge
+  - pytorch  # if applicable
+dependencies:
+  - python=[X.Y]
+
+  # ML inference / domain dependencies
+  # - pytorch>=2.3,<3.0
+  # - transformers>=4.45,<5.0
+  # - accelerate>=0.30
+  # - safetensors
+
+  # Scientific computing
+  - numpy>=1.26,<2.0
+  - scipy>=1.13,<2.0     # for statistical tests (binomial, CIs, FDR)
+  - pandas>=2.2,<3.0     # for results aggregation
+  # - matplotlib>=3.8     # for figures
+
+  # Statistical analysis (often the Gate-6 stat-significance closure)
+  # - statsmodels>=0.14   # for binomial tests, multiple-comparison correction
+
+  - pip
+  - pip:
+      # Cloud / API clients
+      # - modal>=0.64
+      # - anthropic>=0.40
+      # - openai>=1.0
+
+      # Other
+      - python-dotenv
+      - tqdm
+
+# Notes on closure expectations:
+# 1. Exact patch versions are NOT pinned here. Source repos should have a
+#    `uv.lock` or `conda-lock.yml` that pins every transitive dep. Before any
+#    external submission, that lockfile should either be vendored into this
+#    bundle or this environment.yml should be replaced with a uv-lock-derived
+#    `requirements.txt`.
+# 2. If running on cloud GPU (Modal, AWS, etc.), the cloud-side image is a
+#    separate Docker spec. Its dependencies should be a strict subset of this
+#    env; document the cloud-side image's hash in PROVENANCE.md.
+# 3. CUDA toolkit / Apple Silicon MPS / CPU fallback: do not pin a single
+#    backend. Document the backends supported with their performance
+#    characteristics in the bundle README.

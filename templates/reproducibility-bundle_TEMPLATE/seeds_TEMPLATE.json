@@ -1,0 +1,54 @@
+{
+  "_schema": "mdfy-ai-research-facility reproducibility-bundle seeds.json v0",
+  "_pack": "[PUBLICATION_FOLDER_NAME]",
+  "_status": "[complete / partial — see _todo section]",
+
+  "model_loading": {
+    "model_id": "[e.g., 'Qwen/Qwen2.5-7B-Instruct' or 'meta-llama/Llama-3.1-8B-Instruct']",
+    "huggingface_revision_sha": "[exact HF revision SHA, or TODO_lift_from_source_repo:path/to/source]",
+    "dtype": "[float16 / bfloat16 / float32]",
+    "device": "[cuda / cuda:0 / mps / cpu]"
+  },
+
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 512,
+    "temperature": null,
+    "top_p": null,
+    "top_k": null,
+    "_note": "Adjust per the actual decoding setup. If sampling is used, document the seed in 'sampling_seed' below."
+  },
+
+  "intervention_configuration": {
+    "_optional": "If the work involves activation steering, additive interventions, fine-tuning, or LoRA, document the parameters here. Otherwise this section can be omitted.",
+    "method": "[CAA / SAE / fine-tuning / etc.]",
+    "layers": [],
+    "coefficient_or_lr": null,
+    "intervention_position": "[every_token / answer_token / etc.]"
+  },
+
+  "judge": {
+    "_optional": "If LLM-as-judge is used, document the judge model + parameters.",
+    "judge_model_versions": [],
+    "judge_temperature": null,
+    "position_randomisation_seed": null,
+    "fallback_on_unparseable": null
+  },
+
+  "extraction_or_training_config": {
+    "_optional": "If the work involves training or extraction, document layers, batch size, learning rate, etc."
+  },
+
+  "_non_determinism": {
+    "gpu_kernel_reduction_order": "[note if applicable]",
+    "sampling_seed": null,
+    "judge_temperature_TODO": "[fill in if judge_temperature > 0]",
+    "tolerance_for_replication": null
+  },
+
+  "_todo": [
+    "Lift any TODO_lift_from_source_repo: markers above with the exact values from the source-repo at the pinned SHA",
+    "Confirm CUDA / runtime / framework versions used",
+    "Set tolerance_for_replication based on the documented re-run jitter"
+  ]
+}

@@ -1,0 +1,90 @@
+# Reproducibility-bundle Makefile — TEMPLATE.
+#
+# Target end state: `make replicate` re-derives the headline results from raw
+# inputs on a fresh machine. While Gate-7 finalisation is pending, this
+# Makefile is a STUB that walks the operator through the manual steps; a
+# future Gate-7 commit replaces the stub with a real `replicate` target.
+#
+# Copy this file to `reproducibility-bundle/Makefile` and customise the
+# walkthrough text + replicate steps for the specific publication.
+
+.PHONY: replicate stub-walkthrough verify-structure clean help
+
+help:
+	@echo "Reproducibility-bundle Makefile ([STUB / REAL]) — [Gate-7 finalisation pending / complete]"
+	@echo ""
+	@echo "Targets:"
+	@echo "  make replicate          Re-derive headline results from raw inputs"
+	@echo "  make verify-structure   Run the unit's structure check against this publication"
+	@echo "  make clean              [No-op in stub / remove recovered-results-*]"
+	@echo "  make help               This message"
+
+# === STUB VERSION ===
+# Use this section when the bundle is in pointer-only state and the real
+# replicate target has not yet been implemented.
+
+replicate: stub-walkthrough
+
+stub-walkthrough:
+	@echo "===================================================================="
+	@echo " STUB: end-to-end replication of [PUBLICATION TITLE]"
+	@echo "===================================================================="
+	@echo ""
+	@echo "This bundle does NOT yet implement a one-command replication."
+	@echo "Per replication-log.md, the bundle's Gate-7 finalisation is pending."
+	@echo ""
+	@echo "What you would need to do manually right now to re-derive the results:"
+	@echo ""
+	@echo "  1. Clone the source repos at the pinned SHAs:"
+	@echo "       [source-repo-1] @ [SHA]"
+	@echo "       [source-repo-2] @ [SHA]"
+	@echo ""
+	@echo "  2. From the source repo, install the env:"
+	@echo "       [installation command, e.g. 'uv sync' or 'conda env create -f environment.yml']"
+	@echo ""
+	@echo "  3. Set credentials:"
+	@echo "       export [VAR_1]=..."
+	@echo "       export [VAR_2]=..."
+	@echo ""
+	@echo "  4. Run the validation pipeline:"
+	@echo "       [commands]"
+	@echo ""
+	@echo "  5. Compare the recovered results against the manuscript:"
+	@echo "       [comparison command]"
+	@echo ""
+	@echo "  6. Record the run in replication-log.md."
+	@echo ""
+	@echo "Estimated wall-clock: [X] minutes / [Y] hours."
+	@echo "Estimated cost: [\$$X compute + \$$Y judge calls]."
+	@echo ""
+	@echo "===================================================================="
+
+verify-structure:
+	@cd ../../.. && bash scripts/check-publication-structure.sh
+
+clean:
+	@echo "Nothing to clean — this bundle is in stub state."
+
+# === REAL VERSION ===
+# Replace the stub section above with a real implementation along these lines:
+#
+# CONDA_ENV := $(shell basename $(CURDIR))-replication
+# CREDS := MODAL_TOKEN_ID MODAL_TOKEN_SECRET ANTHROPIC_API_KEY
+#
+# replicate: verify-creds verify-source-repos run-validation compare-results
+# 	@echo "Replication complete; see recovered-results.md"
+#
+# verify-creds:
+# 	@for v in $(CREDS); do test -n "$$$$$$v" || (echo "Missing $$$$$$v"; exit 1); done
+#
+# verify-source-repos:
+# 	@bash scripts/clone-pinned-repos.sh
+#
+# run-validation:
+# 	@cd code && python harness.py eval --config replicate.yaml
+#
+# compare-results:
+# 	@python code/compare_to_published.py recovered/results.json data/published-results.json
+#
+# clean:
+# 	@rm -rf recovered/ source-repos-clone/
