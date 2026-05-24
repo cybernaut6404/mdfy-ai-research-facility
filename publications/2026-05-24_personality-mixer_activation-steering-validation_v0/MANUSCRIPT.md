@@ -32,10 +32,15 @@ refusal-direction cosine (AlphaSteer protocol) and Gram-Schmidt orthogonalisatio
 across the steering basis.
 
 **Results.** Twenty of 24 channels achieved directional accuracy ≥ 0.60 — the
-pre-specified gate (5 originally validated at single-layer; 3 single-layer KILLs
-rescued by multi-layer; 9 of 11 previously-unvalidated channels passing at first
-attempt; 3 Dark-Tetrad channels passing — psychopathy required coefficient = 4 to
-clear a base-RLHF safety floor). Sadism scored 0.000 at every tested coefficient
+pre-specified *descriptive* PASS gate (5 originally validated at single-layer;
+3 single-layer KILLs rescued by multi-layer; 9 of 11 previously-unvalidated
+channels passing at first attempt; 3 Dark-Tetrad channels passing —
+psychopathy required coefficient = 4 to clear a base-RLHF safety floor).
+*Under Holm-Bonferroni or BH-FDR correction across the 18-channel family with
+non-blank Table-S1 W/L/T counts, 0 of 18 channels reach individual statistical
+significance at α = 0.05* (per-channel n is too small: median 7 non-tie pairs);
+the κ ≥ 0.60 gate is reported as a descriptive directional-pattern criterion
+rather than a statistical one (see §3.1.1). Sadism scored 0.000 at every tested coefficient
 (0/16 wins in both directions at c=4); we interpret this as consistent with
 strong base-RLHF refusal of sadistic content, with alternative explanations
 (probe under-elicitation, item-pole inversion) discussed in §3.5. Sycophancy
@@ -282,6 +287,63 @@ trait-eliciting probes: **20 reached the pre-specified PASS gate (κ ≥ 0.60)**
 2 were borderline (0.50 ≤ κ < 0.60), 1 was sign-inverted, and 1 was
 RLHF-floored. Full per-channel results are in §3.3 and Supplementary Table S1.
 
+**Figure 1** presents the full 24-channel scorecard as a forest plot with
+95% Wilson CIs. The visual width of the CIs makes the small-N constraint
+immediate: even the κ = 1.000 rows have lower-bound CIs at ≈ 0.44.
+
+![Figure 1. Directional-accuracy κ across the 24-channel substrate, with 95% Wilson CIs (post-correction significance: 0 of 18; see §3.1.1).](reproducibility-bundle/data/figures/fig1_kappa_forest.png)
+
+#### 3.1.1 Statistical-significance analysis
+
+The κ ≥ 0.60 PASS gate is a *descriptive* directional-accuracy criterion;
+it is not a statistical-significance criterion. To complement the descriptive
+scorecard, we compute, for each of the 24 channels with non-blank
+win/loss/tie counts in Table S1 (n = 18 of 24; the other 6 are "from prior
+validation" rows whose per-coefficient breakdown lives in the substrate
+paper rather than in this manuscript's Table S1), two-sided binomial tests
+against chance (p = 0.50) on the non-tie pairs, 95% Wilson score intervals
+on the high-win proportion, and Holm-Bonferroni / Benjamini-Hochberg (BH-FDR)
+corrections across the 18-channel family. Full per-channel table:
+`reproducibility-bundle/data/derived/stats.md`; computation script:
+`reproducibility-bundle/code/compute_stats.py`.
+
+**Uncorrected.** Five channels reach uncorrected two-sided p < 0.10: narcissism
+p = 0.016 (n = 7), honesty_humility p = 0.125 (n = 4), machiavellianism
+p = 0.125 (n = 7), psychopathy p = 0.25 (n = 3), and several others sitting
+between 0.10 and 0.30 uncorrected.
+
+**Corrected.** Under Holm-Bonferroni correction at α = 0.05 across the
+18-channel family, **zero channels reach significance**. Under
+Benjamini-Hochberg FDR control at α = 0.05, **zero channels reach
+significance**. The per-channel sample sizes (non-tie pair counts of 2–22,
+median 7) are too small to clear the family-wise multiple-comparisons
+threshold. The narcissism row, with the lowest uncorrected p-value, has
+Holm-adjusted p = 0.28 and BH-adjusted p = 0.28.
+
+**Wilson 95% CIs.** Even for the κ = 1.000 channels with N ≈ 3–9 non-tie
+pairs, the Wilson 95% CI extends from approximately 0.44 to 1.00 (i.e. is
+consistent with anywhere from chance to perfect). The widest CIs sit on
+the lowest-N rows. The narrowest CI in the table is
+`dospert_recreational` ([0.491, 0.875] at N = 18); the largest is
+`self_defeat` ([0.095, 0.905] at N = 2).
+
+**Interpretation.** The 20/24 PASS rate is best read as a *directional-pattern
+observation*, not as a battery of confirmed effects. The manuscript's
+substantive contributions — probe-instrument finding, multi-layer rescue
+pattern, vector-level H × Dark-Triad coupling — rest on those descriptive
+observations, which the manuscript labels exploratory in §1.2 and the v1
+revision narrative softening throughout §4. Closure on statistical
+significance requires the larger probe sets (R5 in §9 ROADMAP) and
+multi-subject contrastive items (R1) before any individual-channel
+statistical claim can be made.
+
+The Wilson-CI ceiling at low N is the load-bearing methodological constraint
+for any peer-reviewed-venue submission of this work. A pre-TMLR revision
+will either (i) expand each channel's probe library to ≥ 30 directional
+probes as in the substrate paper's standard (raising per-channel N
+substantially and tightening CIs) or (ii) report only the family-level
+effect rather than per-channel effects.
+
 ### 3.2 Probe-instrument finding (consistent with expectation E2)
 
 For the 4 Dark-Tetrad channels we ran each twice: once with the generic
@@ -406,7 +468,12 @@ No new channel reached the FLAG threshold (|cos| ≥ 0.30) at any tested layer.
 Maximum |cos| across the 15 new channels was 0.295 (self_defeat at L12). The
 Dark-Tetrad channels were mild: machiavellianism 0.218, psychopathy 0.160,
 sadism 0.133, narcissism 0.017 (SAFE). Honesty-humility was 0.103. Per-channel
-worst-layer values are in Supplementary Table S2.
+worst-layer values are in Supplementary Table S2; **Figure 3** plots them
+sorted with the SAFE/watch/FLAG thresholds drawn. The only FLAG channel in
+the full 24-channel substrate (dospert_financial at 0.310, included from the
+substrate paper) is coefficient-clamped to |c| ≤ 1 in the deployed runtime.
+
+![Figure 3. Refusal-direction cosine across the 24-channel substrate (AlphaSteer protocol; SAFE < 0.1, watch 0.1–0.3, FLAG ≥ 0.3).](reproducibility-bundle/data/figures/fig3_refusal_cosine.png)
 
 ### 3.7 Inter-channel structure and the H × Dark-Triad coupling
 
@@ -421,7 +488,11 @@ documented in the psychometric literature (Lee & Ashton, 2014; r ≈ −0.55 to
 −0.65), at the level of the extracted steering vectors themselves, though
 attenuated in magnitude. The attenuation is consistent with each steering
 vector capturing only a subset of the corresponding latent psychometric
-construct's variance. Full matrix in Supplementary Table S3.
+construct's variance. **Figure 2** plots the curated subset of inter-channel
+cosines from Table S3 as a heatmap; the full 15×15 (or 24×24) matrix
+expansion is named as a Tier-2-readiness follow-up in §2.7.
+
+![Figure 2. Selected inter-channel cosine pairs at L16 from Table S3.](reproducibility-bundle/data/figures/fig2_cosine_heatmap_L16.png)
 
 ### 3.8 Quality control
 
@@ -642,6 +713,16 @@ signal but small for confidence intervals. The original substrate paper used
 controlled probes were not run for the new channels; this means length bias
 in the judge cannot be ruled out as a contributor to the wins. Expanding to
 30 probes per channel is a straightforward extension.
+
+**Statistical consequence (see §3.1.1):** the small N per channel (non-tie
+pair counts of 2–22, median 7 across the 18 channels with non-blank counts
+in Table S1) is too small for any individual channel's binomial test to
+clear Holm-Bonferroni or BH-FDR correction across the 18-channel family;
+0 of 18 reach corrected significance at α = 0.05. The κ ≥ 0.60 PASS gate
+is therefore reported as a descriptive criterion, not a statistical one.
+This is the load-bearing methodological constraint for any peer-reviewed-
+venue submission and is the highest-priority closure for a v2 manuscript
+revision.
 
 ### 8.5 Not pre-registered
 

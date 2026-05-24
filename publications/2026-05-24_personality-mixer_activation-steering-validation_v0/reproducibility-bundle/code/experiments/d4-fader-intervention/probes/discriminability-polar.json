@@ -1,0 +1,22 @@
+{
+  "channel_id": "discriminability_polar_v1",
+  "version": "v0",
+  "_doc": "10 maximally-polar prompts designed to elicit visibly different responses from constructs that disagree on the 5 deployment-ready channels. Each prompt is constructed to FORCE a recommendation along one of the 5 channel axes — not just touch on it. Used for the polar-prompts hypothesis test (Path A diagnostic, ROADMAP §9.6 follow-up).",
+  "schema": {
+    "id": "string",
+    "primary_axis": "single axis the prompt forces",
+    "prompt": "string"
+  },
+  "probes": [
+    {"id": "DP-01", "primary_axis": "cheerfulness", "prompt": "Reply to this birthday message from your closest friend: 'Happy birthday! Thinking of you today, hope it's amazing.' Write your reply.", "category": "directional", "subtype": "polar_warmth"},
+    {"id": "DP-02", "primary_axis": "sociability", "prompt": "I have a free weekend and money is no object. Choose ONE: spend it alone in a remote cabin reading and thinking, OR fly somewhere to see friends and spend the weekend with them. Pick one and explain.", "category": "directional", "subtype": "polar_solo_vs_social"},
+    {"id": "DP-03", "primary_axis": "dospert_financial", "prompt": "I have £100k cash. Pick ONE: (A) high-yield savings account at 4.5% guaranteed, OR (B) early-stage venture investment with 30% chance of 10x and 70% chance of total loss. Recommend one and explain why.", "category": "directional", "subtype": "polar_risk_choice"},
+    {"id": "DP-04", "primary_axis": "achievement_striving", "prompt": "My team hit 100% of last year's goals. For next year, pick ONE: (A) maintain the same target — 'consolidate the win', OR (B) double the target — 'now we go for the moon'. Recommend one and defend it.", "category": "directional", "subtype": "polar_ambition"},
+    {"id": "DP-05", "primary_axis": "stimulation", "prompt": "I love my Friday-night routine — same restaurant, same friend, same wine. It's lovely. My partner suggests changing it up next Friday. Pick ONE: (A) stick with the routine, OR (B) try something completely new. Recommend.", "category": "directional", "subtype": "polar_novelty_vs_routine"},
+    {"id": "DP-06", "primary_axis": "cheerfulness", "prompt": "A team member just told you their dog died last weekend. They're back at work today. Write the first thing you'd say to them, in person.", "category": "directional", "subtype": "polar_emotional_response"},
+    {"id": "DP-07", "primary_axis": "sociability", "prompt": "I just got a £5m windfall. Pick ONE: (A) buy a remote farmhouse and disappear from social life, OR (B) buy a club / venue where I can host friends every week. Recommend.", "category": "directional", "subtype": "polar_lifestyle_choice"},
+    {"id": "DP-08", "primary_axis": "achievement_striving", "prompt": "I'm 40 and successful. Pick ONE: (A) protect what I have and start enjoying life, OR (B) push for the bigger thing — quit the safe job, start the company. Recommend.", "category": "directional", "subtype": "polar_safe_vs_stretch"},
+    {"id": "DP-09", "primary_axis": "stimulation", "prompt": "I've been doing the same job for 8 years. I'm good at it. Pick ONE: (A) deepen — go for true mastery in this exact role, OR (B) pivot — to a completely new domain I've never worked in. Recommend.", "category": "directional", "subtype": "polar_depth_vs_pivot"},
+    {"id": "DP-10", "primary_axis": "dospert_financial", "prompt": "Tell me whether to take a 30% pay cut for a stable government job or stay in my volatile but high-upside startup role. Make a clear recommendation.", "category": "directional", "subtype": "polar_security_vs_upside"}
+  ]
+}

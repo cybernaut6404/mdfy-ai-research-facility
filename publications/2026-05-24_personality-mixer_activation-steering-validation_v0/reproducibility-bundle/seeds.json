@@ -1,11 +1,11 @@
 {
   "_schema": "mdfy-ai-research-facility reproducibility-bundle seeds.json v0",
   "_pack": "2026-05-24_personality-mixer_activation-steering-validation_v0",
-  "_status": "partial — see _todo section",
+  "_status": "values lifted from vendored source at code/experiments/d4-fader-intervention/analyse.py and code/experiments/d4-fader-intervention/harness.py (cybernaut6404/mg-digital-twin remote HEAD at vendoring date 2026-05-24); the original WORK_LOG.md references a local SHA f492844 that was never pushed to the GitHub remote, so the vendored source corresponds to the most-recent published state rather than that exact local SHA",
 
   "model_loading": {
     "model_id": "Qwen/Qwen2.5-7B-Instruct",
-    "huggingface_revision_sha": "TODO_lift_from_source_repo:mg-digital-twin/infra/extract/qwen_model_card.md",
+    "huggingface_revision_sha": "main (not pinned in source code; harness.py loads via AutoModelForCausalLM.from_pretrained(model_id) with no revision= argument; replicator's effective revision is whatever HuggingFace main is at run time — record yours in your replication-log.md entry)",
     "dtype": "float16",
     "device": "cuda (Modal L4) | mps (local Mac fallback) | cpu (last resort)"
   },
@@ -34,19 +34,21 @@
   },
 
   "judge": {
-    "judge_model_versions": ["claude-opus-4-6", "claude-opus-4-7-1m"],
-    "judge_temperature": "TODO_lift_from_source_repo:mg-digital-twin/experiments/d4-fader-intervention/analyse.py",
-    "position_randomisation_seed": "TODO_lift_from_source_repo:mg-digital-twin/experiments/d4-fader-intervention/analyse.py",
-    "_note": "Position (A vs B) was randomised per pair via a fixed seed to control position bias. The exact seed integer is recorded in analyse.py at commit f492844 and must be lifted before the bundle is independently runnable.",
-    "fallback_on_unparseable": "TIE"
+    "judge_model": "claude-opus-4-7",
+    "judge_temperature": "Anthropic API default (no temperature= override in client.messages.create call; effective temperature is the API default, currently 1.0 unless changed by Anthropic)",
+    "position_randomisation_seed": 42,
+    "judge_max_tokens": 10,
+    "_note_on_work_log_inconsistency": "The publication's WORK_LOG.md §10 and ai-use-disclosure.md §2.1 refer to 'claude-opus-4-6 + claude-opus-4-7-1m' as the two judge model versions used. The vendored analyse.py at the published source HEAD names only 'claude-opus-4-7'. This is consistent with the local-SHA-not-pushed annotation: the originating session used the model name available at the time; the published source uses the model name that resolves at run time. Replicators should pin whichever Anthropic model is current at their run date and record it in their replication-log.md entry.",
+    "fallback_on_unparseable": "TIE",
+    "permissive_parsing": "Per analyse.py::judge_pair, the judge response is uppercased and stripped; 'TIE' in text → TIE; 'A' without 'B' → A; 'B' without 'A' → B; default fallback → TIE."
   },
 
   "probe_libraries": {
-    "_paths_relative_to_mg_digital_twin_at_commit_f492844": {
-      "generic": "experiments/d4-fader-intervention/probes/discriminability.json",
-      "trait_eliciting_dark_tetrad": "experiments/d4-fader-intervention/probes/dark-*.json",
-      "trait_eliciting_new_15": "experiments/d4-fader-intervention/probes/new-*.json",
-      "original_9_per_channel": "experiments/d4-fader-intervention/probes/*.json (channel-named)"
+    "_paths_relative_to_bundle_code_dir": {
+      "generic": "code/experiments/d4-fader-intervention/probes/discriminability.json",
+      "trait_eliciting_dark_tetrad": "code/experiments/d4-fader-intervention/probes/dark-*.json",
+      "trait_eliciting_new_15": "code/experiments/d4-fader-intervention/probes/new-*.json",
+      "original_9_per_channel": "code/experiments/d4-fader-intervention/probes/*.json (channel-named)"
     }
   },
 
@@ -72,15 +74,20 @@
 
   "_non_determinism": {
     "gpu_kernel_reduction_order": "Qwen2.5-7B inference on Modal L4 is not bitwise-deterministic across runs due to floating-point reduction order. Documented in PROVENANCE.md §Determinism and manuscript §8.6.",
-    "judge_temperature_TODO": "If judge_temperature > 0 (TBD), judge ratings are non-deterministic across runs; this affects κ jitter.",
+    "judge_temperature_default": "The Anthropic API default temperature (currently 1.0) means each judge call is non-deterministic. With short max_tokens (10) and a forced-choice question with TIE fallback, the variance is typically low but non-zero; expect occasional κ jitter on re-run.",
     "kappa_tolerance_for_replication": 0.05
   },
 
-  "_todo": [
-    "Lift huggingface_revision_sha from mg-digital-twin source repo before external submission",
-    "Lift judge_temperature and position_randomisation_seed from analyse.py at commit f492844",
-    "Lift uv.lock from mg-digital-twin and either vendor or pin via environment.yml replacement",
+  "_completed_from_v0_intake": [
+    "huggingface_revision_sha: confirmed not pinned in source; documented as 'HuggingFace main at run time'",
+    "judge_temperature: confirmed no override in analyse.py; Anthropic API default",
+    "position_randomisation_seed: 42 (default seed argument in analyse_channel)",
+    "judge_model: claude-opus-4-7 (per vendored analyse.py)"
+  ],
+
+  "_remaining_todo": [
+    "Lift uv.lock or pip-compile output from mg-digital-twin to pin transitive Python deps in environment.yml",
     "Confirm CUDA toolkit version used on Modal L4 at run time",
-    "Decide whether to release the contrastive items (currently in private mg-digital-twin) publicly — see PROVENANCE.md §License"
+    "Annotate any model-version drift between the WORK_LOG (claude-opus-4-6 + 4-7-1m) and the vendored source (claude-opus-4-7) in a future revision if Rick has access to the original judge-run logs"
   ]
 }

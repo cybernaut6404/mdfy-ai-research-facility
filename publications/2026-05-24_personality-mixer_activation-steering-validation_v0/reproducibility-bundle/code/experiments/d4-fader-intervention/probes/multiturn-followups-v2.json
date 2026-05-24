@@ -1,0 +1,12 @@
+{
+  "_doc": "7 generic follow-up user messages for W10 bigger multi-turn test (n=20 starters × 8 turns = 160 gens per construct). Designed to work after any plausible assistant response and to elicit channel-relevant content over the conversation arc.",
+  "followups": [
+    "OK, that's interesting. What would you actually do, if you were me?",
+    "What's the part of that you're least sure about?",
+    "Pretend my partner is more risk-averse than I am. How does that change your advice?",
+    "What's a specific first step I could take this week?",
+    "What's the failure mode I should worry about most?",
+    "Now imagine 3 years have passed and I followed your advice — what does my life look like?",
+    "Last question: if I came back to you in 6 months and said it had gone wrong, what would you guess happened?"
+  ]
+}

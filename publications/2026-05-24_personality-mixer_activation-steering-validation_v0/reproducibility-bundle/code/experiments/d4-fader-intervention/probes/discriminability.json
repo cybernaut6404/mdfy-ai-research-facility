@@ -1,0 +1,22 @@
+{
+  "channel_id": "discriminability_v1",
+  "version": "v0",
+  "_doc": "10 mixed prompts for the multi-construct discriminability test (ROADMAP §9.6). Spans the 5 deployment-ready channels: cheerfulness, sociability, DOSPERT-Financial, achievement-striving, stimulation. Run through both Rick and warm_direct_coach (Rick-inverse), then blind judge whether outputs are distinguishable.",
+  "schema": {
+    "id": "string",
+    "primary_axes": "which channels the prompt is designed to expose",
+    "prompt": "string"
+  },
+  "probes": [
+    {"id": "DT-01", "primary_axes": ["cheerfulness", "sociability"], "prompt": "A junior colleague messages me: 'Just heard back — I got the promotion!' How do I reply?", "category": "directional", "subtype": "warmth+social"},
+    {"id": "DT-02", "primary_axes": ["sociability", "stimulation"], "prompt": "I have a free Saturday with no plans. What's the ideal way to spend it?", "category": "directional", "subtype": "free_day_planning"},
+    {"id": "DT-03", "primary_axes": ["dospert_financial", "achievement_striving"], "prompt": "I have £100k of savings. Should I put it in equities or keep it in a high-yield savings account?", "category": "directional", "subtype": "investment_decision"},
+    {"id": "DT-04", "primary_axes": ["achievement_striving", "stimulation"], "prompt": "I've been in my current role for 3 years. It's stable, I'm good at it, but I'm wondering if I should push for something bigger. Help me think about this.", "category": "directional", "subtype": "career_decision"},
+    {"id": "DT-05", "primary_axes": ["sociability", "cheerfulness"], "prompt": "I've moved to a new city for work and I don't know many people. How should I approach my first weekend here?", "category": "directional", "subtype": "social_relocation"},
+    {"id": "DT-06", "primary_axes": ["dospert_financial", "stimulation"], "prompt": "A friend wants me to invest £20k in their early-stage startup. They're well-prepared but the company is unproven. What do you advise?", "category": "directional", "subtype": "venture_investment"},
+    {"id": "DT-07", "primary_axes": ["achievement_striving"], "prompt": "My team hit 95% of last year's goals. What should we aim for next year?", "category": "directional", "subtype": "goal_setting"},
+    {"id": "DT-08", "primary_axes": ["stimulation", "achievement_striving"], "prompt": "I have time to learn one new skill this year. Help me decide what.", "category": "directional", "subtype": "learning_choice"},
+    {"id": "DT-09", "primary_axes": ["cheerfulness"], "prompt": "Write me an opening for a Monday-morning email to a team I lead.", "category": "directional", "subtype": "team_message"},
+    {"id": "DT-10", "primary_axes": ["sociability", "achievement_striving"], "prompt": "Plan an ideal team offsite for 12 people, two days, £15k budget.", "category": "directional", "subtype": "team_offsite"}
+  ]
+}

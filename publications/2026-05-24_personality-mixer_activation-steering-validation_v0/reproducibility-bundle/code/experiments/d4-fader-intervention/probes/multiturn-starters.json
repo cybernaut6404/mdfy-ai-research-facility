@@ -1,0 +1,9 @@
+{
+  "_doc": "4 starter prompts for multi-turn discriminability test (W9). Each is open-ended enough to allow 6 turns of dialogue exploring channel-relevant choices. Used with shared followups (multiturn-followups.json) to test whether persona discriminability emerges as conversation accumulates (vs single-shot W7-W8 results).",
+  "starters": [
+    {"id": "MT-01", "starter_prompt": "I'm trying to decide what to do with my next 12 months. I have stable income, no urgent obligations, and three options on the table: stay in my current role and double down, take a sabbatical to travel, or quit and start something new. Help me think this through."},
+    {"id": "MT-02", "starter_prompt": "I just got £200,000 from a windfall. I'm 38, mortgage paid, no kids, decent salary. I want to think about what to do with it. Walk me through your view."},
+    {"id": "MT-03", "starter_prompt": "I run a team of 14 people. We've had a strong 18 months but the energy is flagging — some of the senior people seem bored. I want to think about how to restart momentum. Where would you start?"},
+    {"id": "MT-04", "starter_prompt": "A close friend of mine is going through a hard time — they lost their job, their relationship is strained, and they're not sleeping well. I want to be useful to them but I'm not sure how. What's your view?"}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "_doc": "5 generic follow-up user messages for multi-turn discriminability test. Designed to work after any plausible assistant response; tests whether discriminability accumulates across turns. Shared across both constructs and all starters for fairness.",
+  "followups": [
+    "OK, that's interesting. What would you actually do, if you were me?",
+    "What's the part of that you're least sure about?",
+    "Pretend my partner is more risk-averse than I am. How does that change your advice?",
+    "What's a specific first step I could take this week?",
+    "What's the failure mode I should worry about most?"
+  ]
+}

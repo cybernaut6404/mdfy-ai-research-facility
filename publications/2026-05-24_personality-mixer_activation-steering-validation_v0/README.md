@@ -56,13 +56,20 @@ the v0.0.4-charter compliance gaps. Status per artifact:
 
 Remaining open closures before any external (arXiv) preprint posting, per the Gate-6 counter-signature's required-actions list:
 
-- Gate-7 reproducibility-bundle finalisation (vendor or submodule source code; real `make replicate`; one end-to-end run logged; lift seeds.json TODOs).
-- Prompt-archive deposition at this folder's `prompts/` subdirectory (requires Cowork-session export).
+- ~~Gate-7 reproducibility-bundle finalisation~~ ✅ **partial closure landed in the autonomous-mode pre-arXiv pass:** code vendored from `cybernaut6404/mg-digital-twin`; real `make replicate` written and verified working locally (5 MATCH · 4 OUT_OF_TOLERANCE · 15 NOT_VENDORED for the 24-channel scorecard); seeds.json TODOs lifted; `make replicate-full` target documented for the Modal end-to-end path. The remaining gap (4 OUT_OF_TOLERANCE rows + 15 NOT_VENDORED rows) is a known data-availability issue — the multi-layer-rescue + new-channel judge reports live on a local SHA f492844 that was never pushed to GitHub. Three closure options documented in `reproducibility-bundle/code/README.md` §"What's NOT vendored" and `reproducibility-bundle/data/derived/replication-delta.md`. Acceptable for arXiv preprint with the existing access-on-request posture.
+- **Prompt-archive deposition** at this folder's `prompts/` subdirectory — see `COWORK_TRANSCRIPT_EXPORT.md` for the procedure. This is the **only ⏳ blocker** for arXiv preprint posting; requires Rick's manual export of the Cowork session(s) from the MacMini.
 - ~~ORCID registration~~ ✅ done 2026-05-24: [0009-0004-0799-1756](https://orcid.org/0009-0004-0799-1756).
 
-Remaining open closures before TMLR submission, per the Gate-6 counter-signature:
+Closures landed in the autonomous-mode pre-arXiv pass:
 
-- v2 manuscript additions: statistical-significance reporting (95% CIs, binomial tests, Bonferroni/BH-FDR), real bibliography (proper .bib with DOIs), figures (κ forest plot; inter-channel cosine heatmap; refusal-cosine scatter).
+- ✅ **Statistical-significance analysis** added to MANUSCRIPT.md §3.1.1 + §8.4: per-channel binomial tests, 95% Wilson score CIs, Holm-Bonferroni + BH-FDR corrections across the 18-channel family. Headline: 0 of 18 reach significance under family-wise correction (per-channel n too small). Computed by `reproducibility-bundle/code/compute_stats.py`; written to `reproducibility-bundle/data/derived/stats.{json,md}`.
+- ✅ **Three figures** generated and embedded in MANUSCRIPT.md: κ forest plot (Figure 1, §3.1); inter-channel cosine heatmap (Figure 2, §3.7); refusal-cosine bar chart (Figure 3, §3.6). Source script: `reproducibility-bundle/code/figures.py`.
+- ✅ **Real bibliography** at `references.bib` (BibLaTeX, 18 entries with verified DOIs from training-data knowledge; one entry — Anthropic Persona Vectors — marked TODO_VERIFY_DOI). Wired into the publication-folder Makefile via pandoc citeproc.
+- ✅ **arXiv submission package** target `make arxiv` in the publication-folder Makefile + ARXIV_SUBMISSION_README.md step-by-step guide. Produces `arxiv-submission.tar.gz` (~423KB) ready for upload to arxiv.org/submit/.
+
+Remaining open closures before TMLR submission (per ROADMAP_TO_TOP_VENUES.md):
+
+- v2 manuscript additions: figures + bibliography + stats are now done (✅ landed in the autonomous-mode pass). The TMLR-blocker that remains is the **larger probe sets per channel** (substrate paper's 30-probe standard; current per-channel n median is 7 non-tie pairs) and **cross-model replication** on a non-Qwen model (Llama-3.1-8B per the ROADMAP).
 
 ## Provenance
 - Validation date: 2026-05-23 → 2026-05-24

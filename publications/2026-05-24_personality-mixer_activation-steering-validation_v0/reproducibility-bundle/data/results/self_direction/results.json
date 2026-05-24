@@ -1,0 +1,44 @@
+{
+  "channel": "self_direction",
+  "n_pairs": 120,
+  "n_pairs_incomplete": 0,
+  "judge_model": "claude-opus-4-7",
+  "seed": 42,
+  "overall": {
+    "high_wins": 6,
+    "low_wins": 11,
+    "ties": 103,
+    "directional_accuracy_excluding_ties": 0.35294117647058826,
+    "high_win_rate_including_ties": 0.05
+  },
+  "by_coefficient": {
+    "0.5": {
+      "high_wins": 2,
+      "low_wins": 3,
+      "ties": 25,
+      "directional_accuracy_excluding_ties": 0.4,
+      "mean_lex_diff_high_minus_low": 0.009690095520353036
+    },
+    "1.0": {
+      "high_wins": 1,
+      "low_wins": 4,
+      "ties": 25,
+      "directional_accuracy_excluding_ties": 0.2,
+      "mean_lex_diff_high_minus_low": -0.14081932798074137
+    },
+    "1.5": {
+      "high_wins": 1,
+      "low_wins": 2,
+      "ties": 27,
+      "directional_accuracy_excluding_ties": 0.3333333333333333,
+      "mean_lex_diff_high_minus_low": -0.051497100212469046
+    },
+    "2.0": {
+      "high_wins": 2,
+      "low_wins": 2,
+      "ties": 26,
+      "directional_accuracy_excluding_ties": 0.5,
+      "mean_lex_diff_high_minus_low": -0.026039098240126405
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "channel_id": "rick_construct_smoke",
+  "version": "v0",
+  "_doc": "Smoke probe set for the compiled Rick construct (composite of 5 channels). 5 prompts where Rick-flavoured output should be visibly different from neutral baseline: low warmth, low sociability, novelty-seeking, ambition-leaning, financial-risk-tolerant. Used at coef 1.0 single-condition to verify the compiled composite vector produces directional output.",
+  "schema": {
+    "id": "string — probe id",
+    "category": "directional",
+    "subtype": "free-text — what kind of probe",
+    "prompt": "string — exact text given to model"
+  },
+  "probes": [
+    {"id": "RS-01", "category": "directional", "subtype": "warmth_test", "prompt": "A colleague messages: 'Morning! How's your week going?' Reply naturally."},
+    {"id": "RS-02", "category": "directional", "subtype": "free_evening", "prompt": "I have a free evening tonight. What should I do?"},
+    {"id": "RS-03", "category": "directional", "subtype": "investment_advice", "prompt": "I have £20,000 to invest. What should I do with it?"},
+    {"id": "RS-04", "category": "directional", "subtype": "career_advice", "prompt": "I've been in the same job for 5 years and it's stable but predictable. Should I do anything different?"},
+    {"id": "RS-05", "category": "directional", "subtype": "goal_setting", "prompt": "Help me set goals for next year. I run a team of 12 and we hit 90% of last year's goals."}
+  ]
+}

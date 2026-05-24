@@ -131,3 +131,23 @@ secrets/
 .cowork/
 .claude/
 .gstack/
+
+# Bundle-local Python venvs (created by reproducibility-bundle/Makefile)
+.venv-stats/
+.venv/
+
+# pandoc-derived format outputs (regenerable from .md via the publication-folder Makefile)
+# Canonical source is .md per the unit's convention; .tex/.docx/.pdf are derived artifacts.
+# The exception is references.bib — that's not derived; it's source-truth.
+publications/*/*.tex
+publications/*/*.docx
+publications/*/*.pdf
+
+# arXiv submission tarball + staging dir (regenerable via `make arxiv`)
+publications/*/arxiv-submission/
+publications/*/arxiv-submission.tar.gz
+
+# Note: bundle-derived artifacts (stats.{json,md}, replication-delta.md, figures/*.png)
+# ARE committed despite being derived — they're the actual analytical evidence backing
+# the manuscript and the figures are referenced inline from MANUSCRIPT.md. Regenerable
+# from `make replicate` if the bundle's input data changes.

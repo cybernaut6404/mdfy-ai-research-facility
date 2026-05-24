@@ -1,0 +1,44 @@
+{
+  "channel": "conscientiousness_self_discipline",
+  "n_pairs": 120,
+  "n_pairs_incomplete": 0,
+  "judge_model": "claude-opus-4-7",
+  "seed": 42,
+  "overall": {
+    "high_wins": 35,
+    "low_wins": 32,
+    "ties": 53,
+    "directional_accuracy_excluding_ties": 0.5223880597014925,
+    "high_win_rate_including_ties": 0.2916666666666667
+  },
+  "by_coefficient": {
+    "0.5": {
+      "high_wins": 7,
+      "low_wins": 7,
+      "ties": 16,
+      "directional_accuracy_excluding_ties": 0.5,
+      "mean_lex_diff_high_minus_low": -0.16991118765920982
+    },
+    "1.0": {
+      "high_wins": 8,
+      "low_wins": 9,
+      "ties": 13,
+      "directional_accuracy_excluding_ties": 0.47058823529411764,
+      "mean_lex_diff_high_minus_low": -0.09076960246591095
+    },
+    "1.5": {
+      "high_wins": 9,
+      "low_wins": 8,
+      "ties": 13,
+      "directional_accuracy_excluding_ties": 0.5294117647058824,
+      "mean_lex_diff_high_minus_low": 0.003877048586186088
+    },
+    "2.0": {
+      "high_wins": 11,
+      "low_wins": 8,
+      "ties": 11,
+      "directional_accuracy_excluding_ties": 0.5789473684210527,
+      "mean_lex_diff_high_minus_low": -0.16319795416467356
+    }
+  }
+}
