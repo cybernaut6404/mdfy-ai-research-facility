@@ -1,0 +1,54 @@
+# Reproducibility-bundle conda environment for the 24-channel
+# activation-steering validation. Top-level dependencies pinned to known
+# versions. Transitive-dependency lockfile (uv.lock or conda-lock.yml)
+# TODO before any external submission — to be lifted from the source repos'
+# lockfiles at Gate 7.
+#
+# Tested on: macOS 25.5 ARM64 (development), Linux x86_64 + Modal L4 (validation).
+# Python: 3.11.x.
+
+name: mdfy-personality-mixer-validation
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.11
+
+  # ML inference and steering
+  - pytorch>=2.3,<3.0          # for tensor ops + forward hooks
+  - torchvision                # not used directly; transitive on some platforms
+  - transformers>=4.45,<5.0    # for Qwen2.5-7B-Instruct loading + tokenizer
+  - accelerate>=0.30           # for fp16 inference on L4
+  - safetensors                # checkpoint format
+
+  # Scientific computing
+  - numpy>=1.26,<2.0
+  - scipy>=1.13,<2.0           # statistical utilities; not yet used (binomial tests are a Gate-7 TODO)
+  - pandas>=2.2,<3.0           # results aggregation
+
+  # Cloud infrastructure
+  - pip
+  - pip:
+      # Cloud compute and judge API
+      - modal>=0.64            # Modal client for L4 GPU runs and steering-server
+      - anthropic>=0.40        # Anthropic SDK for the blind-rater judge
+      # Other
+      - python-dotenv          # env-file loading
+      - tqdm                   # progress bars in long judge runs
+
+# Notes on the gaps:
+# 1. Exact patch versions are not pinned here. Source repos have a uv.lock
+#    (`mg-digital-twin/uv.lock` at commit f492844) that pins every
+#    transitive dep. Before any external submission, that lockfile should
+#    either be vendored into this bundle or this environment.yml should
+#    be replaced with a uv-lock-derived `requirements.txt`.
+# 2. The Modal-side image (defined in
+#    `mg-digital-twin/infra/steering-server/steering_server.py::Image`)
+#    is a separate Docker image. Its dependencies are a strict subset of
+#    this conda env; replicators running on Modal will use that image
+#    rather than this conda env.
+# 3. CUDA: this env does not pin a CUDA toolkit version. Modal L4 uses
+#    CUDA 12.x. Replicators running locally on an Apple Silicon Mac will
+#    fall back to MPS or CPU and should expect different generation
+#    numerics; this is documented in PROVENANCE.md §"Determinism" and the
+#    manuscript §8.6.

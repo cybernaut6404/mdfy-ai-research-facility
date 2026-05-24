@@ -1,0 +1,86 @@
+{
+  "_schema": "mdfy-ai-research-facility reproducibility-bundle seeds.json v0",
+  "_pack": "2026-05-24_personality-mixer_activation-steering-validation_v0",
+  "_status": "partial — see _todo section",
+
+  "model_loading": {
+    "model_id": "Qwen/Qwen2.5-7B-Instruct",
+    "huggingface_revision_sha": "TODO_lift_from_source_repo:mg-digital-twin/infra/extract/qwen_model_card.md",
+    "dtype": "float16",
+    "device": "cuda (Modal L4) | mps (local Mac fallback) | cpu (last resort)"
+  },
+
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 512,
+    "temperature": null,
+    "top_p": null,
+    "top_k": null,
+    "_note": "Greedy decoding (do_sample=False) was used for all validation runs. Stochastic decoding may produce different generations; see manuscript §8.6."
+  },
+
+  "steering_configuration": {
+    "main_validation": {
+      "layers": [12, 16, 20],
+      "coefficient_ceiling_abs": 2.0,
+      "coefficient_used": 2.0,
+      "intervention_position": "every_token"
+    },
+    "diagnostic_only_psychopathy_sadism": {
+      "layers": [12, 16, 20],
+      "coefficient_used": 4.0,
+      "_note": "Only psychopathy and sadism were run at c=4 per pre-specified diagnostic protocol."
+    }
+  },
+
+  "judge": {
+    "judge_model_versions": ["claude-opus-4-6", "claude-opus-4-7-1m"],
+    "judge_temperature": "TODO_lift_from_source_repo:mg-digital-twin/experiments/d4-fader-intervention/analyse.py",
+    "position_randomisation_seed": "TODO_lift_from_source_repo:mg-digital-twin/experiments/d4-fader-intervention/analyse.py",
+    "_note": "Position (A vs B) was randomised per pair via a fixed seed to control position bias. The exact seed integer is recorded in analyse.py at commit f492844 and must be lifted before the bundle is independently runnable.",
+    "fallback_on_unparseable": "TIE"
+  },
+
+  "probe_libraries": {
+    "_paths_relative_to_mg_digital_twin_at_commit_f492844": {
+      "generic": "experiments/d4-fader-intervention/probes/discriminability.json",
+      "trait_eliciting_dark_tetrad": "experiments/d4-fader-intervention/probes/dark-*.json",
+      "trait_eliciting_new_15": "experiments/d4-fader-intervention/probes/new-*.json",
+      "original_9_per_channel": "experiments/d4-fader-intervention/probes/*.json (channel-named)"
+    }
+  },
+
+  "extraction_layer_sweep": [8, 12, 16, 20, 24],
+
+  "vector_normalisation": "L2-normalised post-extraction; coefficient c is the intervention dial",
+
+  "orthogonalisation": {
+    "method": "modified Gram-Schmidt",
+    "order_for_validated_9": [
+      "achievement_striving",
+      "cheerfulness",
+      "dospert_financial",
+      "sociability",
+      "stimulation",
+      "dospert_recreational",
+      "cautiousness",
+      "conscientiousness_self_discipline_v3",
+      "self_direction"
+    ],
+    "tolerance_post": "1e-7 (machine epsilon for fp32 at 3584 dims)"
+  },
+
+  "_non_determinism": {
+    "gpu_kernel_reduction_order": "Qwen2.5-7B inference on Modal L4 is not bitwise-deterministic across runs due to floating-point reduction order. Documented in PROVENANCE.md §Determinism and manuscript §8.6.",
+    "judge_temperature_TODO": "If judge_temperature > 0 (TBD), judge ratings are non-deterministic across runs; this affects κ jitter.",
+    "kappa_tolerance_for_replication": 0.05
+  },
+
+  "_todo": [
+    "Lift huggingface_revision_sha from mg-digital-twin source repo before external submission",
+    "Lift judge_temperature and position_randomisation_seed from analyse.py at commit f492844",
+    "Lift uv.lock from mg-digital-twin and either vendor or pin via environment.yml replacement",
+    "Confirm CUDA toolkit version used on Modal L4 at run time",
+    "Decide whether to release the contrastive items (currently in private mg-digital-twin) publicly — see PROVENANCE.md §License"
+  ]
+}
