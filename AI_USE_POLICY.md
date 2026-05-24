@@ -30,9 +30,13 @@ AI generated draft text that was then reviewed, revised, and approved by a human
 
 **Disclosure:** A paragraph in the Acknowledgments naming the AI system, the sections it drafted, and the human author who reviewed and approved each section.
 
-### Tier 3 — Analytical or methodological contribution
+### Tier 3 — Execution assistance (analytical or methodological)
 
-AI contributed to data analysis, code generation that produced published results, figure generation, or methodological design. This is the level at which most of the unit's current work operates.
+AI executed analytical, code, figure-generation, or methodological-implementation work that the human author specified and directed. The human decided what to analyze, how to analyze it, what argument to make; the AI implemented. AI output is graded against a standard the human held before asking.
+
+This is the level at which most of the unit's current work operates.
+
+*Examples:* AI wrote the analysis script for a pre-registered test; AI generated figures from a human-specified plotting specification; AI drafted a Methods section from human-supplied notes; AI implemented a tokenizer ablation the human had already designed.
 
 **Disclosure:** A subsection of Methods titled "AI Assistance" specifying:
 
@@ -43,11 +47,15 @@ AI contributed to data analysis, code generation that produced published results
 - the human author who is accountable for each AI-contributed element;
 - any known limitations or biases of the AI system relevant to the operation.
 
-### Tier 4 — Substantial generation
+### Tier 4 — Substantial generation (intellectual origination)
 
-AI generated substantive content that, if removed, would materially change the manuscript: novel hypotheses, original analytical interpretations, major sections of argument.
+AI originated substantive intellectual content that the human author did not specify in advance and would not have produced unaided. Novel hypotheses, original analytical interpretations, framings, arguments, or methodological choices that the human elected to accept into the work.
 
-**Disclosure:** Tier 3 disclosure plus an explicit accountability statement signed by a human author for each AI-generated element, and a section in Discussion addressing the role of AI in the work's contribution.
+The test that distinguishes Tier 4 from Tier 3 is *direction of intellectual origin*, not size of contribution. A bounded AI-originated interpretation that appears in the Discussion is Tier 4; an unbounded AI-executed analysis the human designed is Tier 3.
+
+*Examples:* AI proposed a hypothesis the human had not considered and the human ran with it; AI's interpretation of residuals appears verbatim in the Discussion; AI selected which of several possible analyses to feature in the manuscript; AI generated the framing argument for the Introduction.
+
+**Disclosure:** Tier 3 disclosure plus an explicit accountability statement signed by a human author for each AI-originated element (naming the element, identifying the human author taking accountability under ICMJE criterion 4, and stating that the human reviewed and endorses the AI-originated content as their own published claim), and a section in Discussion addressing the role of AI in the work's contribution.
 
 ## Standard disclosure paragraph (Tier 3)
 

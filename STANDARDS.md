@@ -17,9 +17,9 @@ A study is Tier C when it tests a pre-specified hypothesis against pre-specified
 - Internal review (Gate 6) completed and signed.
 - Deviations-from-Pre-Registration section present in the manuscript, whether or not deviations occurred.
 - Falsification criteria stated in the manuscript.
-- For ML work: full NeurIPS Paper Checklist completed and committed.
+- For ML work: NeurIPS Paper Checklist committed per the reproducibility-bundle checklist's *Compliance artifacts* section (`neurips-checklist.md` in the publication folder).
 - For human-subjects work beyond founder self-experimentation: IRB approval letter committed.
-- For self-experimentation work: SCRIBE 2016 reporting items satisfied where applicable.
+- For self-experimentation work and other single-case experimental designs: SCRIBE 2016 checklist committed per the reproducibility-bundle checklist's *Compliance artifacts* section (`scribe-checklist.md` in the publication folder).
 
 ## Tier E — Exploratory
 
@@ -47,7 +47,7 @@ A study is Tier M when its primary contribution is a tool, benchmark, instrument
 - Reproducibility bundle satisfying the bundle checklist.
 - AI-use disclosure paragraph drafted and reviewed.
 - Internal review (Gate 6) completed and signed.
-- Model Card (per Mitchell et al. 2019) committed for any released model.
+- Model Card (per Mitchell et al. 2019) committed per the reproducibility-bundle checklist's *Compliance artifacts* section (`model-card.md` in the publication folder), for any released model.
 - For benchmarks: clear statement of dataset provenance, license, and any contamination risk relative to large pretrained models.
 
 ## Tier T — Theoretical and review
@@ -57,24 +57,18 @@ A study is Tier T when its primary contribution is conceptual, methodological-wi
 **Checklist (all items required):**
 
 - For meta-analyses and systematic reviews: pre-registered protocol on PROSPERO (where in scope) or OSF, with inclusion/exclusion criteria and analysis plan locked in.
-- PRISMA 2020 reporting items satisfied for systematic reviews and meta-analyses.
+- PRISMA 2020 checklist and flow diagram committed per the reproducibility-bundle checklist's *Compliance artifacts* section (`prisma-checklist.md` and `prisma-flow.[png|svg|pdf]` in the publication folder) for systematic reviews and meta-analyses.
 - Full bibliography under version control; literature search strategy reproducible.
 - COI disclosure (§12 of Charter) updated and committed.
 - AI-use disclosure paragraph drafted and reviewed.
 - Internal review (Gate 6) completed and signed.
 
-## Review prompt (Gate 6) — v0 working draft
+## Review prompt (Gate 6)
 
-In v0, internal review is performed by an LLM under a structured prompt, counter-signed by the founder. The prompt is itself a versioned artifact. The current working version is described here and will be moved into `templates/internal-review-prompt_v0.md` at first use.
+In v0, internal review is performed by an LLM under a structured prompt, counter-signed by the founder. The prompt is itself a versioned artifact.
 
-The reviewer is given: the manuscript draft, the tier checklist for the manuscript's tier, the pre-registration or exploration plan, the reproducibility bundle's PROVENANCE.md, and the relevant entries from the lab notebook. The reviewer is asked, in order:
+The canonical Gate-6 review prompt lives at [`templates/internal-review-prompt_v1.md`](templates/internal-review-prompt_v1.md). It supersedes the seven-question working draft that previously appeared in this section. Reviews cite the prompt version they were performed under (e.g., `v1`), and any non-cosmetic change to the prompt is a new `vN` file rather than an edit-in-place.
 
-1. Are all tier-checklist items satisfied? Identify each unsatisfied item by name.
-2. Are the manuscript's claims supported by the evidence at the strength stated? Identify any over-claims or under-claims.
-3. Do any analyses appear in the manuscript that are not in the pre-registration or exploration plan, and if so, are they correctly labelled exploratory and disclosed in a Deviations section?
-4. Is the AI-use disclosure complete and accurate against the actual record?
-5. Does the reproducibility bundle, on a spot-check, contain the artifacts named in its PROVENANCE.md?
-6. Are there ethical, dual-use, or responsible-release concerns the Scoping Memo did not anticipate?
-7. State any reservations not covered by the questions above.
+The v1 prompt covers, in order: (1) tier-checklist compliance, (2) claim–evidence calibration, (3) pre-registration / exploration-plan adherence, (4) AI-use disclosure completeness, (5) reproducibility-bundle spot check, (6) ethics / dual-use / responsible-release, (7) conflicts of interest, (8) internal consistency, (9) reservations not covered above, and (10) recommendation (`PROCEED` / `PROCEED WITH REVISIONS` / `HOLD` / `ABANDON OR RESCOPE`). The prompt specifies a mandatory output schema and includes a human counter-signature block.
 
 The reviewer's response, the founder's counter-signature, and any resolution of reviewer points are committed to the publication folder as `internal-review.md` before release.

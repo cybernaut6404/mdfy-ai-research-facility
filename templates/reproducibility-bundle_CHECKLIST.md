@@ -53,12 +53,22 @@
 - [ ] The bundle has been run end-to-end on a fresh machine by the founder (or, where available, an independent third party). The log is in `replication-log.md`.
 - [ ] The headline numerical results in the manuscript match the bundle's reproduction within the documented tolerance.
 
+## Compliance artifacts (where applicable)
+
+Every compliance artifact below lives in the publication folder (not the reproducibility-bundle subfolder, so reviewers can find it without unpacking the bundle), at the canonical path listed. "Where applicable" means: include the artifact if the tier and study type below describe this publication; otherwise the item is N/A with a one-line justification.
+
+- [ ] **NeurIPS Paper Checklist** — Tier C ML work — committed as `neurips-checklist.md`. Every item completed; items marked "N/A" carry a one-line justification.
+- [ ] **SCRIBE 2016 Checklist** — Tier C / Tier E self-experimentation and other single-case experimental designs — committed as `scribe-checklist.md`. The SCRIBE 2016 reporting items are enumerated with the manuscript section or line that satisfies each.
+- [ ] **Model Card (Mitchell et al. 2019)** — Tier M, where a model is released — committed as `model-card.md`. Covers intended use, training data, evaluation, known limitations, ethical considerations.
+- [ ] **PRISMA 2020 Checklist + Flow Diagram** — Tier T systematic reviews and meta-analyses — committed as `prisma-checklist.md` plus a flow diagram at `prisma-flow.png` (or `.svg` / `.pdf`). Both required; the checklist alone is insufficient for PRISMA 2020 compliance.
+
 ## Model release (Tier M, where a model is released)
 
-- [ ] Model Card (Mitchell et al. 2019) is included.
 - [ ] License terms for the model are stated.
 - [ ] Known limitations and intended use are explicit.
 - [ ] Responsible-release considerations (Charter §11) have been reviewed.
+
+(The Model Card itself is listed in *Compliance artifacts* above.)
 
 ## Sign-off
 

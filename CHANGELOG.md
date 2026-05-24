@@ -2,6 +2,35 @@
 
 All notable changes to the `mdfy-ai-research-facility` charter, standards, and policies are recorded here.
 
+## [v0.0.4-charter] — 2026-05-24
+
+### Last v1 open question closed; five amendments bundled
+
+The v0.0.3-charter tag stays as the founding marker. v0.0.4 is the first amendment after adoption. It closes the last remaining v1 open question (CI maturity-progression triggers) and bundles four flagged refinements surfaced during the bootstrap session into a single recorded change. No genuine open questions remain after this amendment; the next scheduled review is the annual charter review per §16.
+
+### Changed
+
+- **CHARTER.md** — front matter bumped to v0.0.4; added a "Last open question closed" line summarizing what changed at this version.
+- **CHARTER.md §0** — updated to reflect that both original v1 open questions are now closed (Gate-6 prompt at v0.0.3, CI triggers at v0.0.4) and that the next scheduled review is the annual charter review.
+- **CHARTER.md §10 (Internal lab notebook)** — added the transcript-mirror procedure: three categories (publication-touching → archive in `ai-use-disclosure.md`; charter/standards-touching → mirror to `notebooks/YYYY/MM/_transcripts/`; operational → session identifier only with rationale). Operator classifies at write time; when in doubt, mirror.
+- **CHARTER.md §18 (Open questions)** — ratified CI maturity-progression triggers in the body of the section (closes the last v1 open question). *Light → Medium* triggers on first DOI/link 404 or first dependency-drift replication failure; *Medium → Heavy* triggers on first silent bundle breakage or three concurrent Tier C/E/M publications under active maintenance. Upgrade procedure: trigger fires → operator opens a charter amendment within 7 days naming the incident → bump charter version → only then implement the CI tier.
+- **CHARTER.md §19 (Adoption)** — clarified that the unit was adopted at v0.0.3-charter and amendments (starting with v0.0.4) update the charter in effect without re-adopting the unit. The `v0.0.3-charter` tag is retained as the permanent founding marker.
+- **CHARTER.md footer** — citation line updated to v0.0.4.
+- **STANDARDS.md §Review prompt (Gate 6)** — replaced the seven-question working draft (which was supposed to be relocated to a template) with a pointer to the canonical `templates/internal-review-prompt_v1.md`. STANDARDS now describes only the ten-question coverage and the counter-signature convention; the prompt text itself lives only in the template file.
+- **STANDARDS.md Tier C, Tier M, Tier T checklists** — compliance-artifact requirements (NeurIPS Paper Checklist, Model Card, PRISMA 2020) now reference the reproducibility-bundle checklist's *Compliance artifacts* section for canonical filenames and locations, rather than naming them inline. SCRIBE 2016 promoted from "reporting items satisfied" to a committed `scribe-checklist.md` file; PRISMA 2020 promoted from "reporting items satisfied" to committed `prisma-checklist.md` + `prisma-flow.[png|svg|pdf]` files. This is a real policy uplift for self-experimentation and systematic-review work — both now require a committed checklist artifact, not just manuscript-internal satisfaction of the reporting items.
+- **AI_USE_POLICY.md Tier 3 and Tier 4** — boundary sharpened using the *direction-of-intellectual-origin* test. Tier 3 = AI executes work the human specified and directed (analysis, code, figures, drafting from notes). Tier 4 = AI originates substantive intellectual content the human did not specify in advance (hypotheses, interpretations, framings, methodological choices the human elected to accept). The test is who decided the content, not how big the contribution is. Tier-4 disclosure now explicitly requires a per-element accountability statement.
+- **CITATION.cff** — version bumped to 0.0.4-charter.
+- **templates/reproducibility-bundle_CHECKLIST.md** — new *Compliance artifacts (where applicable)* section enumerating the four required artifacts with canonical filenames: `neurips-checklist.md` (Tier C ML), `scribe-checklist.md` (single-case designs including self-experimentation), `model-card.md` (Tier M release), `prisma-checklist.md` + `prisma-flow.[png|svg|pdf]` (Tier T systematic review). Existing "Model release" section retained for license/limitations/intended-use items; Model Card itself relocated to the *Compliance artifacts* section to keep all reporting artifacts in one place.
+
+### Resolved
+
+- Last v1 open question (CI maturity-progression triggers) is closed.
+- Four refinements flagged in the v0.0.3 bootstrap report are addressed: STANDARDS §Review-prompt staleness; AI_USE_POLICY Tier 3/4 boundary fuzz; missing compliance-artifact commit paths; missing transcript-mirror procedure for AI-assisted notebook entries.
+
+### Studies affected
+
+None — this amendment lands before any real research output exists. No published manuscripts, no pre-registrations, no reproducibility bundles are touched. The DEMO worked-example publication is not affected by any amendment.
+
 ## [v0.0.3-charter] — 2026-05-24
 
 ### Scaffold completion

@@ -1,12 +1,13 @@
 # mdfy-ai-research-facility
 
-## Charter & Operating Manual — v0.0.3
+## Charter & Operating Manual — v0.0.4
 
 **Prepared:** 2026-05-24 (founding session)
 **Founding decisions baked in:** 2026-05-24 (v0.0.2)
 **Scaffold completed (LICENSE files, CI, review prompt v1, worked-example DEMO):** 2026-05-24 (v0.0.3)
-**Source workspace:** founding session (Cowork)
-**Status:** v0.0.3 — ready for adoption (founding-commit tag `v0.0.3-charter`)
+**Last open question closed (CI maturity-progression triggers ratified; Tier 3/4 boundary sharpened; compliance-artifact paths fixed; transcript-mirror procedure defined):** 2026-05-24 (v0.0.4)
+**Source workspace:** founding session (Cowork) + bootstrap session
+**Status:** v0.0.4 — in effect (latest tag `v0.0.4-charter`; founding-commit tag `v0.0.3-charter` retained)
 **Document owner:** Rick Weakley (rick@minorgod.com)
 
 ---
@@ -15,7 +16,7 @@
 
 This is the founding charter for an internal AI research unit. It is written to be the single source of truth for how research is planned, executed, reviewed, published, and archived under the `mdfy-ai-research-facility` name. It is not a wish list. Every standard described here is intended to be enforced from day one, including against the founder.
 
-The founding decisions for v0 are resolved and baked into the body of this document. At v0.0.3, one of the two original v1 open questions is also closed (the hardened Gate-6 review prompt is now `templates/internal-review-prompt_v1.md`). The remaining open question — CI maturity progression — is listed in §18 for the v1 charter review.
+The founding decisions for v0 are resolved and baked into the body of this document. As of v0.0.4, the two original v1 open questions are also both closed: the hardened Gate-6 review prompt lives at `templates/internal-review-prompt_v1.md` (closed at v0.0.3), and the CI maturity-progression triggers are ratified in §18 (closed at v0.0.4). The next scheduled review is the annual charter review per §16; no genuine open questions remain in the meantime.
 
 Anywhere a referenced standard has a canonical source, it is cited in §17. Where the literature is genuinely unsettled or the canonical source is in flux, the charter says so out loud rather than guessing.
 
@@ -191,6 +192,16 @@ The lab notebook is a continuous, dated record of research activity. Entries are
 
 Each entry contains: a date and time, a short title, the project or projects it touches, a free-form record of what was tried, what worked, what failed, what was learned, and any decisions taken. Dead ends are recorded as fully as successes. Where AI assistance played a meaningful role in a session, the entry notes which AI, the prompt strategy, and a link to or excerpt from the transcript.
 
+The procedure for preserving an AI-session transcript referenced by a notebook entry depends on the stake of the session. Every AI-assisted session falls into exactly one of three categories.
+
+A **publication-touching session** is one whose AI assistance materially shapes a forthcoming publication's methods, analysis, code, figures, or text. The full prompt-and-output archive is committed to that publication's `ai-use-disclosure.md` per §7 and the AI Use Policy. The notebook entry cites the publication's `ai-use-disclosure.md` by path; no separate transcript mirror is required in `notebooks/`.
+
+A **charter- or standards-touching session** is one whose AI assistance shapes a charter amendment, a standards refinement, a template, or any unit-level policy decision. The transcript — or its decision-relevant excerpts, with a one-line rationale for any redaction — is committed to `notebooks/YYYY/MM/_transcripts/YYYY-MM-DD_short-title_transcript.md`. The corresponding notebook entry cites the transcript file by path.
+
+An **operational session** is one whose AI assistance produces no published artifact and touches no unit-level standard (build, test, dogfooding, scaffolding, bootstrap). The notebook entry records the vendor session identifier (URL or API session ID) and a one-line rationale for why no transcript is preserved. No transcript mirror is required.
+
+The operator classifies each session into exactly one of these three categories at the time of writing the notebook entry. When in doubt, the operator mirrors rather than omits.
+
 The notebook is the primary evidence that the unit conducted its research as it claims. Published papers reference relevant notebook entries by their committed file path.
 
 ## 11. Ethics, risk, and dual-use review
@@ -292,9 +303,14 @@ The Turing Way (community handbook). A continuing reference for reproducible and
 
 ## 18. Open questions and decision points
 
-The v0 founding decisions are resolved in the body of this charter. As of v0.0.3, one of the two original v1 open questions is also closed (the hardened Gate-6 internal-review prompt now lives at `templates/internal-review-prompt_v1.md`). One genuine open question remains for v1 and is tracked in the CHANGELOG.
+The v0 founding decisions are resolved in the body of this charter. As of v0.0.4, the two original v1 open questions are also both closed: the hardened Gate-6 internal-review prompt lives at `templates/internal-review-prompt_v1.md` (closed at v0.0.3), and the CI maturity-progression triggers are ratified below (closed at v0.0.4). No genuine open questions remain for v1; the next charter review is the scheduled annual review per §16.
 
-**CI maturity progression.** v0 ships with `scripts/check-publication-structure.sh` (the v0 guard) plus the GitHub Actions workflow `.github/workflows/structure-check.yml` that invokes it on every push and pull request touching `publications/`. The trigger criteria for upgrading to Medium CI (link/DOI validation) and Heavy CI (on-tag reproducibility runs) are not yet specified. To do: review CI scope at the v1 charter review, with concrete triggers (e.g., "first time a published DOI 404s" → Medium; "first time a real publication's reproducibility bundle silently breaks" → Heavy).
+**CI maturity progression (ratified at v0.0.4).** v0 ships with the *Light* tier — `scripts/check-publication-structure.sh` plus the GitHub Actions workflow `.github/workflows/structure-check.yml` — invoked on every push and pull request touching `publications/`. The upgrade triggers and procedure are now fixed:
+
+- *Light → Medium* (adds link/DOI validation, lockfile integrity checks, and citation-target reachability). Triggers, whichever comes first: (a) a published reference, DOI, or external link in any released publication 404s; (b) a third party reports they could not replicate because a lockfile or dependency drifted out from under the bundle.
+- *Medium → Heavy* (adds on-tag end-to-end `make replicate` runs of the reproducibility bundle in fresh containers). Triggers, whichever comes first: (a) a real (non-DEMO) publication's reproducibility bundle silently breaks between release and a downstream replication attempt; (b) the unit reaches three concurrent Tier C / Tier E / Tier M publications under active maintenance.
+
+When a trigger fires, the operator opens a CHARTER amendment within seven days naming the triggering incident or condition, bumps the charter version, and only then implements the upgraded CI tier. CI does not quietly upgrade: every upgrade is a deliberate, recorded act with the triggering event on the permanent record.
 
 The following items were considered during v0 founding and resolved as follows, and are recorded here for clarity rather than as open questions:
 
@@ -306,14 +322,15 @@ The following items were considered during v0 founding and resolved as follows, 
 - *Dual-use posture:* case-by-case at the Scoping Memo gate, per §11.
 - *External advisor:* sought when the first non-founder collaborator joins, paired with the human-review transition, per §16.
 - *Gate-6 review prompt:* hardened structured prompt committed at v0.0.3 as `templates/internal-review-prompt_v1.md`.
+- *CI maturity progression:* triggers and procedure ratified at v0.0.4 (see body of this section above).
 
 ## 19. Adoption
 
-This charter takes effect when the founder commits it to the `mdfy-ai-research-facility` repository as `CHARTER.md` on the `main` branch and tags the commit `v0.0.3-charter`. The repository's README and CITATION.cff are populated at the same commit. No research output may bear the unit's name until adoption is complete.
+The unit was adopted when the founder committed the charter to the `mdfy-ai-research-facility` repository as `CHARTER.md` on the `main` branch and tagged the commit `v0.0.3-charter` on 2026-05-24. The repository's README and CITATION.cff were populated at the same commit. No research output may bear the unit's name until adoption is complete; adoption is one-time, and the `v0.0.3-charter` tag is retained as the permanent founding marker. Subsequent charter amendments (the first being v0.0.4 on 2026-05-24) update the charter in effect but do not re-adopt the unit; each amendment is recorded in `CHANGELOG.md` with its own annotated tag.
 
 A worked-example publication folder at `publications/2026-05-24_example_demo-publication_v0/` demonstrates a Tier-M-compliant publication structure and is retained in the repository as a structural reference. It is clearly labelled as a DEMO and is not for external citation or release.
 
 ---
 
 *Cite this charter as:*
-Weakley, R. (2026). *mdfy-ai-research-facility Charter & Operating Manual, v0.0.3.* [Internal research-unit charter, founding session, 2026-05-24].
+Weakley, R. (2026). *mdfy-ai-research-facility Charter & Operating Manual, v0.0.4.* [Internal research-unit charter, founding session + bootstrap amendment, 2026-05-24].
