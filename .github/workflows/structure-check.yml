@@ -1,0 +1,37 @@
+name: Publication structure check
+
+# Runs the v0 CI guard (scripts/check-publication-structure.sh) on every pull
+# request that touches publications/, and on every push to main. Per Charter §6.
+#
+# Failure mode: any publication folder missing one of the required artifacts
+# (README.md, ai-use-disclosure.md, internal-review.md, reproducibility-bundle/)
+# fails the check. Use the v1 charter review to decide whether to upgrade to
+# medium-tier CI (link/DOI validation) or heavy-tier CI (on-tag reproducibility
+# runs).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'publications/**'
+      - 'scripts/check-publication-structure.sh'
+      - '.github/workflows/structure-check.yml'
+  pull_request:
+    paths:
+      - 'publications/**'
+      - 'scripts/check-publication-structure.sh'
+      - '.github/workflows/structure-check.yml'
+
+jobs:
+  check-structure:
+    name: Validate publication folder structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Make the check script executable
+        run: chmod +x scripts/check-publication-structure.sh
+
+      - name: Run publication structure check
+        run: ./scripts/check-publication-structure.sh

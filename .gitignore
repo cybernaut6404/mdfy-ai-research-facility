@@ -1,0 +1,132 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.netrwhist
+.vim/
+.cursor/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+.cache
+
+# Jupyter
+.ipynb_checkpoints/
+
+# uv / pip-tools lockfiles — DO commit these for reproducibility:
+# (intentionally NOT in .gitignore)
+# uv.lock
+# requirements.lock
+
+# Node (in case of supplementary tooling)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp.*
+
+# Local environment and secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.crt
+secrets/
+
+# Large or generated data
+# (Project-specific. Per Charter §9, raw data is included in
+# reproducibility-bundle/data/ OR a documented access procedure plus checksums
+# is provided. Use this section to ignore working data files that should NOT
+# be committed, while ensuring published bundles remain complete.)
+*.tmp
+*.bak
+*.log
+*.tar
+*.tar.gz
+*.zip
+# Uncomment if your raw data files are very large and stored elsewhere:
+# data-raw/
+# *.h5
+# *.parquet
+
+# Compiled documents (commit the source, not the binary)
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.toc
+# Leave *.pdf alone here — published manuscripts ARE committed in publications/.
+
+# Local notebook outputs (commit the source notebook, but not the OS-specific run state)
+.ipynb_checkpoints/
+
+# Model and checkpoint files (frequently very large; reference by checksum in PROVENANCE.md instead)
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.bin
+
+# Cowork / Claude session artifacts (in case work happens through Cowork)
+.cowork/
+.claude/

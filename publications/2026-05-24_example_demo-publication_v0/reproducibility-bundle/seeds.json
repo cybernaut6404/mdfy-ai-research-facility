@@ -1,0 +1,5 @@
+{
+  "_demo_note": "This DEMO uses no randomness, so the seed table is empty. The file is committed to satisfy the structural-compliance check. Real publications populate this with the random seeds, RNG library/version, and any per-script seed assignments used to produce published figures and tables.",
+  "global_seed": null,
+  "per_script_seeds": {}
+}

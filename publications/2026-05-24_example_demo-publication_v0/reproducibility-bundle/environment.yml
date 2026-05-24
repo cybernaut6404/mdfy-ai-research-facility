@@ -1,0 +1,17 @@
+# Minimal conda environment for the DEMO reproducibility bundle.
+#
+# The DEMO's verifier uses Python standard library only — no third-party
+# dependencies. For real publications, every third-party dependency MUST be
+# pinned to an exact version, and a lockfile (uv.lock, pip-compile, or conda
+# explicit) MUST be committed alongside this file.
+
+name: mdfy-ai-research-facility-demo
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  # For real publications, list pinned third-party deps here, e.g.:
+  # - numpy=1.26.4
+  # - pandas=2.2.0
+  # - scipy=1.12.0
+  # - matplotlib=3.8.2

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you reference work from this research unit, please cite the specific publication's DOI listed in its folder's README. To cite the unit itself, use the entry below."
+title: "mdfy-ai-research-facility"
+abstract: "Internal AI research unit operating to publication-grade standards across multiple project repositories."
+type: software
+authors:
+  - family-names: "Weakley"
+    given-names: "Rick"
+    email: "rick@minorgod.com"
+repository-code: "https://github.com/PLACEHOLDER/mdfy-ai-research-facility"
+url: "https://github.com/PLACEHOLDER/mdfy-ai-research-facility"
+license: Apache-2.0
+version: "0.0.3-charter"
+date-released: "2026-05-24"
+keywords:
+  - artificial-intelligence
+  - research-unit
+  - reproducibility
+  - open-science
+  - interpretability

@@ -1,0 +1,63 @@
+# Normalize line endings to LF in the repo; check out platform-native on the working tree.
+* text=auto eol=lf
+
+# Source/text formats — explicit text classification.
+*.md       text eol=lf
+*.txt      text eol=lf
+*.yml      text eol=lf
+*.yaml     text eol=lf
+*.json     text eol=lf
+*.toml     text eol=lf
+*.cff      text eol=lf
+*.py       text eol=lf
+*.sh       text eol=lf
+*.bib      text eol=lf
+*.tex      text eol=lf
+*.csv      text eol=lf
+*.tsv      text eol=lf
+*.r        text eol=lf
+*.R        text eol=lf
+*.qmd      text eol=lf
+*.ipynb    text eol=lf
+
+# Shell scripts MUST be executable line-endings.
+*.sh       text eol=lf
+
+# Binary formats — never normalize.
+*.pdf      binary
+*.png      binary
+*.jpg      binary
+*.jpeg     binary
+*.gif      binary
+*.zip      binary
+*.tar      binary
+*.gz       binary
+*.parquet  binary
+*.h5       binary
+*.hdf5     binary
+*.npy      binary
+*.npz      binary
+*.ckpt     binary
+*.pt       binary
+*.pth      binary
+*.safetensors binary
+*.onnx     binary
+*.docx     binary
+*.xlsx     binary
+*.pptx     binary
+
+# Git LFS hints — if you adopt Git LFS for the repo, these are typical candidates.
+# Uncomment after `git lfs install` and `git lfs track`.
+# *.parquet  filter=lfs diff=lfs merge=lfs -text
+# *.h5       filter=lfs diff=lfs merge=lfs -text
+# *.npy      filter=lfs diff=lfs merge=lfs -text
+# *.npz      filter=lfs diff=lfs merge=lfs -text
+# *.safetensors filter=lfs diff=lfs merge=lfs -text
+# *.pt       filter=lfs diff=lfs merge=lfs -text
+# *.pth      filter=lfs diff=lfs merge=lfs -text
+
+# Linguist hints (used by GitHub for repo language stats).
+*.ipynb    linguist-language=Python
+publications/** linguist-documentation=true
+templates/**    linguist-documentation=true
+references/**   linguist-documentation=true
