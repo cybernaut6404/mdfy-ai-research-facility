@@ -1,7 +1,8 @@
 % Bibliography for the personality-mixer activation-steering validation paper.
-% Verified DOIs from training-data knowledge of widely-cited literature; entries
-% marked TODO_VERIFY_DOI should be confirmed via Crossref or the publisher's
-% page before any external submission.
+% All entries verified as of 2026-05-24. The Anthropic Persona Vectors entry
+% (anthropic2025personavectors) was verified via WebFetch against
+% https://www.anthropic.com/research/persona-vectors during the checkpoint
+% pass; identified as arXiv:2507.21509.
 %
 % Format: BibLaTeX-compatible. To use with pandoc:
 %   pandoc MANUSCRIPT.md --citeproc --bibliography=references.bib \
@@ -30,10 +31,15 @@
 
 @misc{anthropic2025personavectors,
   author       = {{Anthropic}},
-  title        = {Persona Vectors and Behavioural Steering},
+  title        = {Persona vectors: Monitoring and controlling character traits in language models},
   year         = {2025},
-  howpublished = {Anthropic research report},
-  note         = {TODO_VERIFY_DOI: confirm canonical citation form before submission}
+  month        = aug,
+  eprint       = {2507.21509},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.CL},
+  doi          = {10.48550/arXiv.2507.21509},
+  url          = {https://arxiv.org/abs/2507.21509},
+  note         = {Research blog: https://www.anthropic.com/research/persona-vectors. Conducted by participants in the Anthropic Fellows program; no individual authors listed on the official posting.}
 }
 
 % ---- HEXACO / Dark Triad / personality psychometrics ----
