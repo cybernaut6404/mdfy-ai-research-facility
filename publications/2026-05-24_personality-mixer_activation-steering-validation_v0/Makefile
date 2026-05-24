@@ -64,6 +64,8 @@ arxiv: MANUSCRIPT.tex references.bib
 	@echo "==> rewriting figure paths in main.tex to match arxiv layout"
 	@sed -i.bak 's|reproducibility-bundle/data/figures/|figures/|g' arxiv-submission/main.tex
 	@rm -f arxiv-submission/main.tex.bak
+	@echo "==> writing 00README.XXX with arxiv engine directive"
+	@printf 'engine: xelatex\n\n# The manuscript uses Greek letters (κ for directional accuracy)\n# and other Unicode characters that require xelatex; pdflatex will fail.\n# This file directs arXiv'\''s AutoTeX to use xelatex.\n' > arxiv-submission/00README.XXX
 	@cp ARXIV_SUBMISSION_README.md arxiv-submission/README.md 2>/dev/null || true
 	@echo "==> creating arxiv-submission.tar.gz"
 	@tar -czf arxiv-submission.tar.gz arxiv-submission/
