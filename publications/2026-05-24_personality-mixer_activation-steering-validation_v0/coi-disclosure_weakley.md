@@ -25,6 +25,7 @@ Salary, consulting fees, advisory roles, board memberships, expert testimony, ro
 **None** specifically relating to the subject matter of this publication. The author's general professional financial history is not relevant to declare in full; only items a reasonable reviewer would consider relevant to *this work* are itemised:
 
 - **Anthropic (paid customer relationship).** The author is a paying subscriber to Anthropic's Claude (used in this work as both the manuscript-drafting assistant and the blind-rater judge). The relationship is the standard customer-vendor relationship of a paid subscription / API account; no advisory role, no equity, no beta-access privileges beyond what is available to any paying customer, no in-kind support. Approximate cumulative spend during the work period (2026-05-23 → 2026-05-24): ~US $5–15 in judge API calls (per the cost provenance in SUPPLEMENTARY_TABLES.md). This relationship is the unit's standing tooling disclosure (CHARTER §12, README.md "Dependencies & tooling disclosure") and is repeated here per ICMJE convention.
+- **GitHub (paid customer relationship).** The author hosts source code under the `cybernaut6404` GitHub account, including the unit repository, the five source repos that produced this work, and downstream commercial repos. Standard customer-vendor relationship of a paid subscription; no advisory role, no equity, no beta-access privileges beyond what is available to any paying customer. This relationship is the unit's standing tooling disclosure (CHARTER §12, README.md "Dependencies & tooling disclosure") and is repeated here per Gate-6 §7 finding.
 - **Modal Labs (paid customer relationship).** The author is a paying customer of Modal Labs (used in this work to host the steering-server and run all GPU validation jobs). Standard customer-vendor relationship; no advisory role, no equity, no beta-access privileges. Approximate cumulative spend during the work period: ~US $8–15 in validation compute.
 - **Supabase (paid customer relationship).** The author hosts the central personality DB on Supabase. Standard customer-vendor relationship; no other ties.
 
@@ -78,6 +79,8 @@ None of these constitute disqualifying conflicts under ICMJE; each is disclosed 
 ## 5. Statement
 
 I have read this disclosure and confirm it is complete and accurate as of the date above. I will update this disclosure if any of the disclosed items change materially before publication.
+
+**Note on the 2026 annual COI snapshot:** Per CHARTER §12, the unit commits a per-publication ICMJE disclosure (this file) AND an annual snapshot at `coi/YYYY_founder-disclosure.md`. The 2026 annual snapshot has been committed at `coi/2026_founder-disclosure.md` to satisfy this convention; this per-publication disclosure is consistent with that annual snapshot. Any deviation between the two would be a reportable inconsistency under the unit's standards.
 
 **Signed:** Rick Weakley
 **Date:** 2026-05-24

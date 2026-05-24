@@ -39,13 +39,28 @@ Both model versions are calibrated against the same blind-rater rubrics committe
 | Artifact | AI contribution | Human reviewer |
 |----------|-----------------|----------------|
 | All κ values in §3, Tables S1–S2 | Blind-rater judging per pre-authored rubrics | R. Weakley (reviewed every judge report; spot-checked individual ratings against the originating pairs) |
-| MANUSCRIPT.md §1 (Introduction, §1.1 Prior work, §1.2 Hypotheses) | Initial draft from author's notes on the substrate paper and prior literature | R. Weakley |
-| MANUSCRIPT.md §2 (Methods) | Drafted from validation harness code and the work log | R. Weakley |
-| MANUSCRIPT.md §3 (Results) | Drafted from judge reports and bias_tests artifacts | R. Weakley |
-| MANUSCRIPT.md §5 (Comparison to prior work), §6 (Operational implications), §7 (Code, data, reproducibility), §8 (Limitations) | Drafted from author-supplied positioning and limitation list | R. Weakley |
-| SUPPLEMENTARY_TABLES.md S1–S7 | Tables compiled from results artifacts | R. Weakley |
+| MANUSCRIPT.md §1 (Introduction, §1.1 Prior work, §1.2 Expectations) | Initial draft from author's notes on the substrate paper and prior literature; v1 revision per Gate-6 §3 reframing hypotheses as exploratory expectations | R. Weakley |
+| MANUSCRIPT.md §2 (Methods) | Drafted from validation harness code and the work log; v1 revision per Gate-6 §8 added dual-judge disclosure (§2.6), κ-gate justification (§2.4), orthogonalisation-scope clarification (§2.7), and QC-probe-count convention (§2.5) | R. Weakley |
+| MANUSCRIPT.md §3 (Results) | Drafted from judge reports and bias_tests artifacts; v1 revision per Gate-6 §2 added sadism alternative-explanations paragraph (§3.5) and softened the honesty_humility cosine prose (§3.7) | R. Weakley |
+| MANUSCRIPT.md §4 (Discussion) | Drafted; v1 revision per Gate-6 §2 softened "decisive"/"universally adopt"/"empirical confirmation" language and added the Broader Impacts subsection (§4.6) per Gate-6 §6 | R. Weakley |
+| MANUSCRIPT.md §5 (Comparison to prior work), §6 (Operational implications), §7 (Code, data, reproducibility), §8 (Limitations) | Drafted from author-supplied positioning and limitation list; v1 revision per Gate-6 §9 reconciled the operational-research-tooling claim (§6) with the commercial-product COI disclosure | R. Weakley |
+| SUPPLEMENTARY_TABLES.md S1–S7 | Tables compiled from results artifacts; v1 revision per Gate-6 §2 changed Table S1 row 9 "overturns" → "challenges" and softened Table S3 narrative | R. Weakley |
 | README.md (this pack's README) | Drafted from pack provenance | R. Weakley |
 | WORK_LOG.md | Drafted from session-by-session work record | R. Weakley |
+| `deviations.md` | Drafted at unit-intake (2026-05-24 afternoon session) as the formal disclosure of the pre-registration gap that pre-dates unit adoption | R. Weakley |
+| `coi-disclosure_weakley.md` | Drafted at unit-intake from ICMJE conventions and the unit's CHARTER §12 / README standing-tooling-disclosure framework | R. Weakley |
+| `neurips-checklist.md` | Drafted at unit-intake against the NeurIPS Paper Checklist Guidelines (Tier-M ML compliance) | R. Weakley |
+| `reproducibility-bundle/PROVENANCE.md` | Drafted at unit-intake as the chain-of-derivation document linking every headline claim to a producing script + pinned SHA | R. Weakley |
+| `reproducibility-bundle/replication-log.md` | Drafted at unit-intake as the honest "not yet end-to-end run" disclosure with closure-path enumeration | R. Weakley |
+| `reproducibility-bundle/code/README.md` | Drafted at unit-intake as a pointer to the five source repos at pinned SHAs, with three Gate-7 closure options enumerated | R. Weakley |
+| `reproducibility-bundle/data/README.md` | Drafted at unit-intake as a pointer to data artifacts plus PII / sensitivity analysis | R. Weakley |
+| `reproducibility-bundle/README.md` | Drafted at unit-intake with per-item compliance table against the unit's `templates/reproducibility-bundle_CHECKLIST.md` | R. Weakley |
+| `reproducibility-bundle/Makefile` (stub) | Drafted at unit-intake as a walk-the-operator stub until Gate-7 finalisation | R. Weakley |
+| `reproducibility-bundle/environment.yml` | Drafted at unit-intake with top-level deps pinned and transitive-lockfile TODO marker | R. Weakley |
+| `reproducibility-bundle/seeds.json` | Drafted at unit-intake with decoding params and randomisation seeds; three TODO markers for values requiring source-repo access | R. Weakley |
+| `correspondence/README.md` | Drafted at unit-intake as an empty-placeholder with naming convention for future submission correspondence | R. Weakley |
+| `Makefile` (publication-folder manuscript-render) | Drafted by the Cowork-session Claude in 2026-05-24 morning; cleaned of mojibake-sed scaffolding at unit-intake | R. Weakley |
+| Pandoc-regenerated `.tex` / `.docx` / `.pdf` outputs | Tier-1 editorial (format conversion only) | R. Weakley |
 
 #### Tier 4 — intellectual origination accepted by the human author
 
@@ -53,12 +68,16 @@ For each element below, R. Weakley reviewed the AI-originated content, endorses 
 
 | Element | Where it appears | Originated by | Accepted by (human author) |
 |---------|------------------|---------------|----------------------------|
-| The three "methodological findings" framing: "Probe-instrument is decisive" (§4.1) | MANUSCRIPT.md §4.1; ABSTRACT; CONCLUSIONS | Claude `claude-opus-4-7-1m` (proposed this framing while drafting §4 from the raw probe-comparison results) | R. Weakley |
-| "Multi-layer is consistently stronger than single-layer" (§4.2) | MANUSCRIPT.md §4.2; ABSTRACT | Claude `claude-opus-4-7-1m` (synthesised the three-of-four-rescue + openness-pass results into this generalisation) | R. Weakley |
-| "The vector basis is psychometrically coherent" (§4.3) | MANUSCRIPT.md §4.3; CONCLUSIONS | Claude `claude-opus-4-7-1m` (proposed the construct-validity framing for the −0.32 H × Dark-Triad cosine) | R. Weakley |
-| "RLHF-floor" interpretation of the sadism null (§3.5, §4.4) | MANUSCRIPT.md §3.5; §4.4 | Claude `claude-opus-4-7-1m` (proposed the "positive safety finding rather than broken vector" interpretation) | R. Weakley |
+| The three "methodological findings" framing: now softened to "Probe-instrument matters more than expected" (§4.1) | MANUSCRIPT.md §4.1; ABSTRACT; CONCLUSIONS | Claude `claude-opus-4-7-1m` (proposed this framing while drafting §4 from the raw probe-comparison results) | R. Weakley |
+| Now softened to "Multi-layer outperformed single-layer in this study" (§4.2) | MANUSCRIPT.md §4.2; ABSTRACT | Claude `claude-opus-4-7-1m` (synthesised the three-of-four-rescue + openness-pass results into this generalisation) | R. Weakley |
+| Now softened to "The vector basis is qualitatively psychometrically coherent" (§4.3) | MANUSCRIPT.md §4.3; CONCLUSIONS | Claude `claude-opus-4-7-1m` (proposed the construct-validity framing for the −0.32/−0.26 H × Dark-Triad cosines) | R. Weakley |
+| Now framed as "candidate safety signal, with alternatives" interpretation of the sadism null (§3.5, §4.4) | MANUSCRIPT.md §3.5; §4.4 | Claude `claude-opus-4-7-1m` (proposed the "positive safety finding" framing; v1 revision broadened to enumerate four alternative interpretations) | R. Weakley |
 | Four-tier publication-venue roadmap (Tier 1: arXiv/TMLR/BRM; Tier 2: Psych Bulletin; Tier 3: Psych Review; Tier 4: World Psych/Lancet Psych) and the R1–R7 requirement enumeration | ROADMAP_TO_TOP_VENUES.md | Claude `claude-opus-4-7-1m` (originated the tier structure and requirement enumeration) | R. Weakley |
-| The "overturns the substrate paper's 'may not be steerable' caveat" verb choice for openness | MANUSCRIPT.md §3.4; §4.2; SUPPLEMENTARY_TABLES.md S1 | Claude `claude-opus-4-7-1m` (chose "overturns" rather than "challenges" or "provides counter-evidence to") | R. Weakley — **flagged for calibration**: per the drafting LLM's own self-critique, "overturns" overstates what one channel result supports; recommended revision to "challenges" before any external submission |
+| Now softened: "challenges" / "provides counter-evidence to" verb choice for openness (was "overturns" in v0; revised in v1 per Gate-6 §2) | MANUSCRIPT.md §3.4; §4.2; SUPPLEMENTARY_TABLES.md Table S1 row 9 | Claude `claude-opus-4-7-1m` (initially chose "overturns"; v1 revision changed to "challenges"/"provides counter-evidence to" per Gate-6) | R. Weakley |
+| "Sycophancy sign-flip as a methodological reminder" framing AND its deployment-safety annotation (§4.5) | MANUSCRIPT.md §4.5 | Claude `claude-opus-4-7-1m` (proposed both the methodological-reminder framing and the v1-added deployment-safety risk annotation) | R. Weakley |
+| The "multi-layer should be tested before declaring a channel un-steerable at single-layer" recommendation (§4.2) — softened from v0's "should arguably replace single-layer as the default" | MANUSCRIPT.md §4.2 | Claude `claude-opus-4-7-1m` (originated the procedural recommendation; v1 revision softened it from a universal-default claim to a study-conditional suggestion) | R. Weakley |
+| "Publishable at a methods or ML venue under preprint conventions" editorial assessment | `reproducibility-bundle/README.md` §"How to read this status honestly" | Claude `claude-opus-4-7-1m` (proposed the publication-readiness judgement) | R. Weakley |
+| Broader Impacts subsection content (§4.6) — positive impacts, negative impacts, mitigations-in-force, mitigations-not-yet-executed | MANUSCRIPT.md §4.6 (added in v1 revision per Gate-6 §6) | Claude `claude-opus-4-7-1m` (originated the dual-use framing, the four-bucket structure, and the specific mitigations enumeration) | R. Weakley |
 
 ### 2.4 Prompt archive
 

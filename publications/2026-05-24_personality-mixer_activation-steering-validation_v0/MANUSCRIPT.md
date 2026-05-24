@@ -36,18 +36,22 @@ pre-specified gate (5 originally validated at single-layer; 3 single-layer KILLs
 rescued by multi-layer; 9 of 11 previously-unvalidated channels passing at first
 attempt; 3 Dark-Tetrad channels passing — psychopathy required coefficient = 4 to
 clear a base-RLHF safety floor). Sadism scored 0.000 at every tested coefficient
-(0/16 wins both directions at c=4), consistent with strong base-RLHF refusal of
-sadistic content. Sycophancy returned κ = 0.250 with low-coefficient steering
-winning 3:1 against high-coefficient — a sign-inverted but otherwise steerable
-channel. Three methodological findings stand out: (i) generic discriminability
-probes systematically false-zero dark-trait validation (all four Dark-Tetrad
-channels scored 0.000 on generic probes versus 0.625–1.000 on trait-eliciting
-probes); (ii) multi-layer steering reliably rescues single-layer failures (3 of
-4 KILLs flipped); (iii) openness — flagged by prior work as potentially not
-separately steerable — passed cleanly (κ = 0.750) under the multi-layer config.
-Empirical inter-channel cosines confirmed the Honesty-Humility × Dark-Triad
-coupling (r ≈ −0.32 at L16) at the vector level, matching the published
-psychometric literature (r ≈ −0.55 to −0.65).
+(0/16 wins in both directions at c=4); we interpret this as consistent with
+strong base-RLHF refusal of sadistic content, with alternative explanations
+(probe under-elicitation, item-pole inversion) discussed in §3.5. Sycophancy
+returned κ = 0.250 with low-coefficient steering winning 3:1 against
+high-coefficient — a sign-inverted but otherwise steerable channel. Three
+methodological findings stand out: (i) across the four Dark Tetrad channels,
+generic discriminability probes false-zero the validation (all four scored
+0.000 on generic probes versus 0.625–1.000 on trait-eliciting probes);
+(ii) multi-layer steering rescues 3 of 4 single-layer failures in this study;
+(iii) openness — flagged by prior work as potentially not separately steerable
+— passed (κ = 0.750) under the multi-layer config, providing counter-evidence
+to the prior caveat. Empirical inter-channel cosines showed the
+Honesty-Humility × Dark-Triad coupling at the vector level (r ≈ −0.32 at L16),
+qualitatively consistent with the published psychometric literature (r ≈ −0.55
+to −0.65) though attenuated in magnitude. These are exploratory findings, not
+confirmatory tests; see §1.2 and deviations.md.
 
 **Conclusions.** Activation steering on a 7B-parameter open model generalises
 across personality constructs at scale, but the validation is highly sensitive
@@ -112,22 +116,32 @@ has systematically validated a 20+ channel battery covering both standard
 personality space and the Dark Tetrad, with explicit safety + orthogonality
 analyses, on a single open model with a single recipe.
 
-### 1.2 Hypotheses
+### 1.2 Expectations (exploratory, not pre-registered)
 
-We pre-specified three hypotheses, in the sense of "stated in the build notes
-before the validation runs", though we did NOT formally pre-register (see §8.2):
+Three expectations were stated in build notes before the validation runs.
+**They were not formally pre-registered on OSF or AsPredicted, and are
+therefore reported here as exploratory findings rather than confirmatory
+tests** (see §8.2; full disclosure in `deviations.md` accompanying this
+manuscript). The build-note timestamps live in author-controlled private
+repositories without external time-stamp, so under any strict reading of
+pre-registration conventions, the expectations below are post-hoc framings
+of what the validation actually found, not hypotheses tested under
+confirmatory protocols.
 
-- **H1.** Multi-layer additive steering at L12/16/20 with |c| ≤ 2 will lift at
+- **E1.** Multi-layer additive steering at L12/16/20 with |c| ≤ 2 will lift at
   least 4 of the 9 originally-validated channels above the 0.60 directional-
   accuracy gate (consistent with the substrate paper's composite-κ finding of
   0.60 at this configuration).
-- **H2.** Generic probes will give systematically lower κ than trait-eliciting
-  probes for dark/edge traits (the trait needs scenarios to express).
-- **H3.** Dark-Triad-related channels will show meaningful refusal-direction
+- **E2.** Generic probes will yield lower κ than trait-eliciting probes for
+  dark/edge traits (the trait needs scenarios to express).
+- **E3.** Dark-Triad-related channels will show meaningful refusal-direction
   cosine entanglement, but will not exceed the 0.30 FLAG threshold reported in
   the Anthropic Persona Vectors line.
 
-All three were tested and reported regardless of outcome.
+All three were tested and reported regardless of outcome. The expectations are
+labelled E1–E3 rather than H1–H3 throughout this manuscript to avoid the
+implicit confirmatory framing that "hypothesis" carries under Tier-C
+conventions.
 
 ---
 
@@ -183,7 +197,9 @@ For each channel we ran a paired-completion validation:
 
 The pre-specified gate was **κ ≥ 0.60** (PASS), with 0.50–0.59 considered
 borderline and < 0.50 a FAIL on the directional hypothesis. The lower-bound
-sanity check (random chance) is κ = 0.50.
+sanity check (random chance) is κ = 0.50. The 0.60 gate is adopted from the
+substrate paper's composite-κ finding at this same configuration on a
+different subset of channels; it is not a power-analysis-derived threshold.
 
 ### 2.5 Probe libraries
 
@@ -192,12 +208,14 @@ Two probe types were used:
   *n* = 10): scenario prompts of the form used in Rimsky et al. (2024),
   not channel-specific.
 - **Trait-eliciting D0 probes** (`probes/dark-*.json` and `probes/new-*.json`),
-  authored per-channel, *n* = 12–14 directional probes + 2 quality-control
-  (factual recall) probes per channel. Each directional probe is a scenario
-  that gives the trait operational room to express (e.g. for machiavellianism,
-  scenarios involving information asymmetry, opportunity to exploit a
-  vulnerable counterpart, or instrumentalisation of a relationship). QC probes
-  test that steering does not corrupt factual recall (none did).
+  authored per-channel, *n* = 12–14 directional probes per channel **plus a
+  separate 2-probe QC (factual recall) set per channel that is not counted in
+  the win/loss/tie tallies reported in §3**. Each directional probe is a
+  scenario that gives the trait operational room to express (e.g. for
+  machiavellianism, scenarios involving information asymmetry, opportunity to
+  exploit a vulnerable counterpart, or instrumentalisation of a relationship).
+  QC probes test that steering does not corrupt factual recall (none did) and
+  are inspected qualitatively, not folded into the κ computation.
 
 The 5 originally validated channels (cheerfulness, sociability, achievement_
 striving, stimulation, dospert_financial) used pre-existing channel-specific
@@ -205,16 +223,27 @@ probe libraries from the substrate-paper repository.
 
 ### 2.6 Judge
 
-Blind-rater judging used Claude Opus 4.7 (Anthropic, 2026) with channel-
-specific system prompts that defined the trait's high and low poles
-operationally, plus a question asking which response (A or B, position
-randomised per pair) shows more of the trait, or TIE. Verbatim rubrics for all
-24 channels are reproduced in SUPPLEMENTARY_TABLES.md. The judge returned one of
-{A, B, TIE} per pair; permissive parsing fell back to TIE on unparseable output.
+Blind-rater judging used Anthropic's Claude. Two model versions were used
+across disjoint subsets of the 24 channels: `claude-opus-4-6` judged the 9
+originally-validated channels under the substrate-paper runs (2026-05-07
+through 2026-05-22), and `claude-opus-4-7-1m` judged the 15 new channels and
+the multi-layer KILL re-tests reported in this manuscript (2026-05-23 through
+2026-05-24). **Inter-model judge agreement was not measured**, because the
+two models judged disjoint subsets rather than the same pair set; this is a
+methodological limitation cross-referenced in §8.3 and in
+`ai-use-disclosure.md` §2.1. A future revision should include a head-to-head
+agreement run on a stratified sample of pairs.
 
-We acknowledge that LLM-as-judge introduces its own systematic bias and is **not
-a substitute for human inter-rater reliability**. This is the second-most
-consequential limitation, addressed in §8.
+Both judge versions used the same channel-specific system prompts (verbatim
+in SUPPLEMENTARY_TABLES.md Table S6) that defined the trait's high and low
+poles operationally, plus a question asking which response (A or B, position
+randomised per pair) shows more of the trait, or TIE. The judge returned one
+of {A, B, TIE} per pair; permissive parsing fell back to TIE on unparseable
+output.
+
+We acknowledge that LLM-as-judge introduces its own systematic bias and is
+**not a substitute for human inter-rater reliability**. This is the
+second-most consequential limitation, addressed in §8.
 
 ### 2.7 Safety analyses
 
@@ -223,8 +252,12 @@ consequential limitation, addressed in §8.
   extracted refusal vector. Thresholds (Anthropic Persona Vectors 2025 §6):
   |cos| < 0.1 SAFE, 0.1–0.3 watch, ≥ 0.3 FLAG.
 - **Inter-channel cosine + Gram-Schmidt orthogonalisation**: pairwise channel
-  cosines at L12/16/20 and norm-preservation ratios under modified Gram-Schmidt
-  with the validated 9 channels orthogonalised first.
+  cosines at L12/16/20 are computed across all 24 channels (Table S3); the
+  Gram-Schmidt orthogonalisation report (Table S4) covers only the 9
+  originally-validated channels in this study, because they form the deployed
+  baseline that runtime steering loadouts compose against. The 15 new channels
+  added in channel_set 2.1.0 were not orthogonalised in this study; expanding
+  the Gram-Schmidt to the full 24-channel basis is a Tier-2-readiness follow-up.
 - **Construct coupling**: Honesty-Humility × Dark-Triad coupling (literature
   r ≈ −0.55 to −0.65; Lee & Ashton, 2014) checked empirically in the vectors.
 
@@ -249,7 +282,7 @@ trait-eliciting probes: **20 reached the pre-specified PASS gate (κ ≥ 0.60)**
 2 were borderline (0.50 ≤ κ < 0.60), 1 was sign-inverted, and 1 was
 RLHF-floored. Full per-channel results are in §3.3 and Supplementary Table S1.
 
-### 3.2 Probe-instrument finding (H2 confirmed)
+### 3.2 Probe-instrument finding (consistent with expectation E2)
 
 For the 4 Dark-Tetrad channels we ran each twice: once with the generic
 discriminability probes and once with channel-specific trait-eliciting probes.
@@ -271,7 +304,7 @@ I do with that information?" gives the trait a target. We treat this as a
 methodological caution to the field: a null result with generic probes is not
 evidence that a channel does not steer.
 
-### 3.3 Multi-layer rescue (H1 confirmed)
+### 3.3 Multi-layer rescue (consistent with expectation E1)
 
 For the 4 channels that KILLed at the substrate paper's original single-layer
 L16 c=0.5 config, re-running at ML L12/16/20 c=2 produced:
@@ -308,25 +341,54 @@ For the 11 previously-unvalidated channels added in channel_set 2.1.0:
 
 Nine of 11 PASS at first attempt with the ML c=2 + trait-eliciting probe
 recipe. **Openness — flagged in the substrate paper as possibly not separately
-steerable** (potentially captured by base RLHF) — passed cleanly at κ = 0.750.
-This finding is conditional on the probe-instrument and config: a single-channel
-single-layer attempt with generic probes would have reproduced the prior null.
+steerable** (potentially captured by base RLHF) — passed at κ = 0.750 under
+the multi-layer configuration. This is counter-evidence to the prior caveat
+rather than a refutation of it: the result is conditional on the
+probe-instrument and config, derives from one single-subject contrastive-item
+set on one model with one LLM judge, and was not pre-registered. A
+single-channel single-layer attempt with generic probes would have reproduced
+the prior null. Replication on a non-Qwen model with multi-subject items is
+the natural next step.
 
-### 3.5 Sadism RLHF-floor; sycophancy sign-flip
+### 3.5 Sadism null; sycophancy sign-flip
 
 **Sadism** returned κ = 0.000 under every tested configuration (10/10 ties at
 c=2 with generic probes, 16/16 ties at c=2 with trait-eliciting probes, 16/16
 ties at c=4). The 0:0 win count at the highest coefficient is striking: the
-model produced *indistinguishable* responses across the high and low steering
-conditions on prompts deliberately designed to give sadism operational room
-("how should I handle a moment where someone who hurt me is now asking for my
-help?", "describe the satisfaction of watching an arrogant person get
-humbled"). This pattern is consistent with strong base-RLHF refusal of sadistic
-expression that the steering vector cannot lift at the safety-clamped
-coefficient ceiling. We report this as a positive safety finding for the base
-model and do not infer the vector is "broken" — it may steer cleanly on a
-non-RLHF-tuned base model (the substrate-paper Pythia-12B run remains untested
-on sadism). All other 23 channels remain in the catalogue as steerable.
+model produced *directionally undifferentiated* responses across the high and
+low steering conditions on prompts deliberately designed to give sadism
+operational room ("how should I handle a moment where someone who hurt me is
+now asking for my help?", "describe the satisfaction of watching an arrogant
+person get humbled"). We frame this as a *directional-accuracy null under all
+tested conditions* rather than an equivalence claim — claiming the two
+conditions produce equivalent outputs would require equivalence testing with a
+pre-specified SESOI (Lakens et al. 2018) that we did not perform.
+
+The pattern is consistent with several distinct hypotheses, which we cannot
+discriminate among with the current evidence:
+
+1. **Strong base-RLHF refusal of sadistic expression** that the steering
+   vector cannot lift at the safety-clamped coefficient ceiling (our leading
+   interpretation in §4.4).
+2. **Probe under-elicitation**: even the trait-eliciting set may not give
+   sadism sufficient operational room (the sadism construct is unusually
+   socially proscribed; authoring strong dark-trait probes is difficult).
+3. **Contrastive-item inversion**: the sadism contrastive set may have been
+   authored with high/low poles swapped, as we documented for sycophancy
+   (§3.5 sycophancy-sign-flip finding); the validation as run would not
+   distinguish this case from RLHF-floor.
+4. **Judge-rubric ambiguity**: the sadism rubric defines high/low poles that
+   may be too close together for the judge to discriminate on the language
+   the model actually produces under either steering direction.
+
+We report sadism as a *positive safety signal under interpretation (1)*
+while explicitly noting that interpretations (2)–(4) remain plausible and
+distinguishable only via additional protocol elements: a sign-validation
+probe (resolves 3), inter-model judge comparison (constrains 4), expanded
+probe-library with explicit dark-tetrad scenario diversity (addresses 2),
+and a non-RLHF-tuned baseline like Pythia-12B (separates 1 from 2–4).
+None of these has been run for this manuscript. All other 23 channels
+remain in the catalogue as steerable.
 
 **Sycophancy** returned κ = 0.250: low-coefficient steering won 3:1 against
 high-coefficient on a rubric explicitly asking "which response is more
@@ -349,14 +411,17 @@ worst-layer values are in Supplementary Table S2.
 ### 3.7 Inter-channel structure and the H × Dark-Triad coupling
 
 Pairwise vector cosines across the 24-channel basis revealed largely independent
-directions (most |cos| < 0.30) with **psychometrically-expected clustering**:
-machiavellianism ↔ sadism +0.38 at L16, psychopathy ↔ attachment_avoidant +0.45,
-attachment_avoidant ↔ self_defeat +0.51 (the strongest non-trivial pair).
-**Critically, honesty_humility showed −0.32 cosine against machiavellianism,
-psychopathy, and self_defeat at L16** — an empirical confirmation of the
-HEXACO H × Dark-Triad coupling (Lee & Ashton, 2014; literature r ≈ −0.55 to
-−0.65) **at the level of the extracted steering vectors themselves**. Full
-matrix in Supplementary Table S3.
+directions (most |cos| < 0.30) with clustering consistent with the standard
+psychometric structure: machiavellianism ↔ sadism +0.38 at L16,
+psychopathy ↔ attachment_avoidant +0.45, attachment_avoidant ↔ self_defeat
++0.51 (the strongest non-trivial pair). **honesty_humility showed cosines of
+−0.32 against machiavellianism and psychopathy, and −0.26 against self_defeat,
+all at L16** — qualitatively consistent with the HEXACO H × Dark-Triad coupling
+documented in the psychometric literature (Lee & Ashton, 2014; r ≈ −0.55 to
+−0.65), at the level of the extracted steering vectors themselves, though
+attenuated in magnitude. The attenuation is consistent with each steering
+vector capturing only a subset of the corresponding latent psychometric
+construct's variance. Full matrix in Supplementary Table S3.
 
 ### 3.8 Quality control
 
@@ -373,36 +438,119 @@ The 20-of-24 PASS rate at a uniform recipe is, to our knowledge, the broadest
 single-model single-recipe validation of activation steering across personality
 space published to date. Three findings have substantive methodological weight.
 
-**4.1 Probe-instrument is decisive.** Across the Dark-Tetrad channels, the same
-vector at the same coefficient produced κ = 0 on generic probes and κ = 0.857–
-1.000 on trait-eliciting probes. Reviewers and replicators of activation-steering
-work should treat probe-instrument as a first-class methodological variable; a
-null with generic probes is uninformative without a trait-eliciting follow-up.
+**4.1 Probe-instrument matters more than expected.** Across the four
+Dark-Tetrad channels in this study, the same vector at the same coefficient
+produced κ = 0 on generic probes and κ = 0.857–1.000 on trait-eliciting probes.
+We do not generalise this to "decisive across all traits" from four channels
+in one study, but the pattern is suggestive enough that reviewers and
+replicators of activation-steering work should treat probe-instrument as a
+first-class methodological variable; a null with generic probes alone is
+uninformative without a trait-eliciting follow-up.
 
-**4.2 Multi-layer is consistently stronger than single-layer.** Three of four
-single-layer KILLs rescued; openness — previously suspected to be base-RLHF-
-captured — passed at κ = 0.750. The multi-layer ML L12/16/20 c=2 recipe should
-arguably replace single-layer as the default validation configuration in this
-literature.
+**4.2 Multi-layer outperformed single-layer in this study.** Three of four
+single-layer KILLs were rescued under multi-layer L12/16/20 c=2; openness —
+previously suspected to be base-RLHF-captured — passed at κ = 0.750. We are
+not in a position to recommend that the activation-steering literature
+universally adopt multi-layer as a default; one study on one model with
+single-subject items does not support that. But the pattern is sufficient to
+suggest multi-layer should be tested before declaring a channel un-steerable
+at single-layer in future work.
 
-**4.3 The vector basis is psychometrically coherent.** The H × Dark-Triad
-cosine (−0.32) reproduces the classic HEXACO finding *at the vector level* — a
-construct-validity result for the substrate that connects activation steering
-to the established psychometric literature. Future work could leverage this to
-test convergent and discriminant validity directly at the vector layer, without
-expensive generation runs.
+**4.3 The vector basis is qualitatively psychometrically coherent.** The
+H × Dark-Triad cosines (−0.32 and −0.26) are qualitatively consistent with
+the published psychometric H × Dark-Triad correlation (−0.55 to −0.65),
+attenuated in magnitude as expected when each steering vector captures only a
+subset of the corresponding latent construct's variance. This is a
+construct-validity signal for the substrate, not a confirmation of the
+psychometric finding "at the vector level" — that framing would over-claim
+what the cosine evidence supports. Future work could leverage the
+vector-level coupling to test convergent and discriminant validity directly,
+without expensive generation runs.
 
-**4.4 The sadism finding is a positive safety signal.** A base-instruction-
-tuned model that produces *indistinguishable* outputs on prompts deliberately
-designed to elicit sadistic content, regardless of activation-steering pressure
-up to the validated coefficient ceiling, is exhibiting durable RLHF
-robustness on this trait. This is itself a publishable safety result and merits
-replication on other safety-trained models.
+**4.4 The sadism null is a candidate safety signal, with alternatives.** A
+base-instruction-tuned model that produces directionally undifferentiated
+outputs on prompts deliberately designed to elicit sadistic content,
+regardless of activation-steering pressure up to the validated coefficient
+ceiling, is *consistent with* durable RLHF robustness on this trait. We frame
+this as a candidate publishable safety result that requires the
+alternative-explanation tests named in §3.5 (sign-validation probe;
+inter-model judge agreement; expanded probe library; non-RLHF baseline) to
+discriminate among the four interpretations of the null. The most actionable
+follow-up is the Pythia-12B replication, which the substrate paper's
+scaffolding supports; if sadism steers cleanly on a non-RLHF-tuned base
+model, the RLHF interpretation gains substantial support.
 
-**4.5 Sycophancy sign-flip as a methodological reminder.** Vector polarity is a
-function of the contrastive-item authoring convention; it should be verified
-empirically before deployment. We recommend a 2-probe sign-validation step
-after any new extraction.
+**4.5 Sycophancy sign-flip as a methodological reminder *and* deployment-safety
+risk.** Vector polarity is a function of the contrastive-item authoring
+convention; it should be verified empirically before deployment. We recommend
+a 2-probe sign-validation step after any new extraction. **Crucially, this
+finding has direct deployment-safety implications:** any downstream consumer
+of the sycophancy steering vector who applies positive-coefficient steering
+intending to *increase* sycophancy will, with the current vector polarity,
+*decrease* it; conversely, attempts to reduce sycophancy in a deployed system
+via negative-coefficient steering will increase it. The polarity issue is now
+documented in the channel metadata in `personality-central-db` and the runner
+applies the corrective coefficient negation, but any third-party consumer of
+the raw vector must inherit the sign-validation step.
+
+**4.6 Broader impacts.** This study produces three artifact classes with
+non-trivial dual-use surface: a method for systematically extracting and
+validating personality-construct steering vectors on an open 7B model; a
+24-channel substrate including four Dark-Tetrad channels; and a set of
+trait-eliciting probe libraries that operationalise standard psychometric
+constructs.
+
+*Positive impacts.* The probe-instrument finding (§3.2, §4.1) is a
+methodological caution that improves the rigour of future activation-steering
+evaluations: a null with generic probes is uninformative without a
+trait-eliciting follow-up. The sadism null (§3.5, §4.4) is a candidate
+positive safety signal, indicating that base-RLHF training on a current open
+7B model may resist activation-steering pressure on certain
+socially-proscribed traits, which is useful for downstream safety evaluation.
+The vector-level H × Dark-Triad coupling (§3.7, §4.3) demonstrates that
+established psychometric structure is recoverable at the activation level,
+opening a path to construct-validity testing at substantially lower compute
+cost than full generation runs.
+
+*Negative impacts.* The substrate enables an actor to tune a 7B open-weight
+model toward Dark-Tetrad-coupled behaviour at moderate effort. The
+machiavellianism and narcissism channels validated cleanly under
+trait-eliciting probes (κ = 0.857 and κ = 1.000 respectively at c=2);
+psychopathy validated at c=4. The sycophancy sign-flip finding (§3.5, §4.5)
+has direct deployment-safety implications: an LLM whose deployed steering
+loadout applies positive-coefficient sycophancy with the current vector
+polarity will become *more* sycophantic, not less. The methodology lowers
+the bar for downstream actors (whether well-intentioned researchers or
+adversarial parties) to extract and apply personality-construct vectors to
+open models.
+
+*Mitigations in force in the current release.* (a) The steering vectors are
+not released as a public model checkpoint at this stage; per
+`reproducibility-bundle/code/README.md` §"Access procedure", access is by
+request to the author and is gated by the unit's licensing (Apache-2.0 code,
+CC-BY-4.0 content). (b) The refusal-cosine SAFE/watch/FLAG protocol
+(Anthropic Persona Vectors 2025) is applied to every channel before
+deployment; the only FLAG channel in the full 24-channel substrate
+(`dospert_financial`, |cos|=0.310) is coefficient-clamped to |c|≤1 in the
+runtime steering loadout. (c) The |c|≤2 coefficient ceiling is enforced by
+the runtime construct-runner (`personality-construct-runner` commit
+`d55296b`); the c=4 diagnostic on psychopathy is a measurement, not a
+deployment configuration. (d) Sadism, the channel with the strongest
+dual-use surface, was found to be RLHF-floored under all tested conditions
+on this base model, with alternative-explanation tests pending per §3.5.
+
+*Mitigations the manuscript does not yet provide.* A formal Model Card
+(Mitchell et al. 2019) is not committed because the steering vectors are not
+public artifacts at this stage; if/when they become public, a Model Card per
+the `templates/reproducibility-bundle_CHECKLIST.md` §"Compliance artifacts"
+specification will be required. A Responsible-Release Review per CHARTER §11
+was not run for this v0 publication because the work pre-dates the unit's
+Scoping-Memo gating framework; a retroactive review at the v0 stage would
+consist of (i) noting that the access-on-request posture is already a staged
+release; (ii) noting that the |c|≤2 ceiling and refusal-cosine clamps act as
+capability gates; and (iii) committing to a Model Card before any public
+vector release. These mitigations are stated here rather than executed as a
+formal gate.
 
 ---
 
@@ -430,8 +578,14 @@ loadouts derived from per-construct channel weights. End-to-end smoke testing
 verified that a single dark archetype (the Devil tarot) loads the appropriate
 Dark-Tetrad channels and produces a meaningfully different response from a
 light archetype (the Star) on identical prompts — though the modal effect size
-is constrained by the same base-RLHF resistance documented in §3.5. The system
-is operational research tooling, not a production product.
+is constrained by the same base-RLHF resistance documented in §3.5.
+
+The system described here is operational research tooling, not a production
+product. A separate commercial product (`mdfy-personality-registry`) consumes
+this validated substrate via a signed-push interface; that product is a
+downstream concern outside the scope of this manuscript and is disclosed in
+`coi-disclosure_weakley.md` §2.6 as an intellectual / commercial interest the
+author holds in the validity of the substrate.
 
 ---
 

@@ -23,7 +23,7 @@ Claude Opus 4.7. Random chance κ = 0.50. Pre-specified gate κ ≥ 0.60.
 | 6 | machiavellianism | DARK_TETRAD | 0.857 | 6 | 1 | 9 | PASS | |
 | 7 | hexaco_extraversion | HEXACO | 0.800 | 4 | 1 | 7 | PASS | |
 | 8 | self_monitoring | SELF_CONSTRUCT | 0.800 | 4 | 1 | 7 | PASS | |
-| 9 | openness | HEXACO | 0.750 | 3 | 1 | 8 | PASS | **overturns "may not be steerable" caveat** |
+| 9 | openness | HEXACO | 0.750 | 3 | 1 | 8 | PASS | **challenges "may not be steerable" caveat (provides counter-evidence; see manuscript §4.2)** |
 | 10 | hexaco_agreeableness | HEXACO | 0.750 | 6 | 2 | 4 | PASS | |
 | 11 | achievement_striving | DRIVE | 0.740 | — | — | — | PASS | from prior validation, single-layer L16 c=0.5 |
 | 12 | dospert_recreational | RISK | 0.722 | 13 | 5 | 12 | PASS | rescued from KILL by ML |
@@ -92,16 +92,23 @@ pairs that bear on construct validity:
 | attachment_avoidant × self_defeat | +0.512 | strongest non-trivial pair |
 | psychopathy × attachment_avoidant | +0.447 | callousness ↔ detachment |
 | psychopathy × self_defeat | +0.370 | dark cluster |
-| **honesty_humility × machiavellianism** | **−0.315** | **H × Dark-Triad coupling, empirically confirmed at the vector level** |
-| **honesty_humility × psychopathy** | **−0.321** | **H × Dark-Triad coupling** |
-| honesty_humility × self_defeat | −0.257 | H × negative-self coupling |
+| **honesty_humility × machiavellianism** | **−0.315** | **qualitatively consistent with H × Dark-Triad coupling at the vector level** |
+| **honesty_humility × psychopathy** | **−0.321** | **qualitatively consistent with H × Dark-Triad coupling** |
+| honesty_humility × self_defeat | −0.257 | H × negative-self coupling (weaker than the dark-tetrad pairs) |
 | self_defeat × dospert_financial | −0.407 | self-defeat ↔ financial risk (inverse) |
 
-The negative honesty_humility × dark-tetrad cosines at the vector level
-correspond to the published psychometric H × Dark-Triad correlation of
-r ≈ −0.55 to −0.65 (Lee & Ashton, 2014). The vector-level magnitude (−0.32) is
-attenuated relative to the psychometric correlation, consistent with each
-vector capturing only a subset of the corresponding latent construct's variance.
+The negative honesty_humility × dark-tetrad cosines at the vector level are
+*qualitatively consistent* with the published psychometric H × Dark-Triad
+correlation of r ≈ −0.55 to −0.65 (Lee & Ashton, 2014), and *attenuated in
+magnitude* relative to that correlation. The attenuation is consistent with
+each steering vector capturing only a subset of the corresponding latent
+psychometric construct's variance; it does not constitute confirmation of the
+psychometric finding at the vector level (see manuscript §4.3 for the softened
+calibration). Three values are reported: honesty_humility × machiavellianism
+= −0.32, honesty_humility × psychopathy = −0.32, honesty_humility × self_defeat
+= −0.26 — the first two are within ±0.01 of −0.32; the third is closer to −0.26
+and should not be aggregated with the dark-tetrad pair as if they shared the
+same magnitude.
 
 ---
 

@@ -39,23 +39,30 @@ installed.
 ## Unit-compliance status (v0.0.4 charter)
 
 This pack pre-dates the unit's adoption (v0.0.3-charter on 2026-05-24) and the
-v0.0.4 amendments. It does NOT yet satisfy the unit's tier-specific standards.
-Specifically (per STANDARDS.md):
+v0.0.4 amendments. The intake commit (febd1d8, plus the Gate-6 counter-signature
+in 6f62989, plus the v1 revision landing in this current state) closed most of
+the v0.0.4-charter compliance gaps. Status per artifact:
 
-- No Gate-1 idea-capture lab-notebook entry
-- No Gate-2 Scoping Memo
-- No Gate-3 pre-registration or Exploration Plan (work pre-dates this gate)
-- No `internal-review.md` (Gate 6) — only the drafting LLM's self-critique
-- No `ai-use-disclosure.md` as a standalone artifact (only Author note in manuscript)
-- No `deviations.md`
-- No per-publication `coi-disclosure_*.md`
-- No `reproducibility-bundle/` subfolder with environment.yml, seeds.json,
-  PROVENANCE.md, replication-log.md, Makefile, code/, data/
-- For ML methods work: no NeurIPS Paper Checklist (`neurips-checklist.md`)
+- ✅ **Gate-1 idea-capture entry:** `notebooks/2026/05/2026-05-24_personality-mixer-paper-intake.md` (committed at intake).
+- ❌ **Gate-2 Scoping Memo:** absent; work pre-dates this gate. Disclosed in `deviations.md` §1.
+- ❌ **Gate-3 pre-registration or Exploration Plan:** absent; work pre-dates this gate. Disclosed in `deviations.md` §1, §3, §5. Future Tier-C upgrade pre-registers on OSF per ROADMAP §"Recommended sequencing" item 1.
+- ✅ **`internal-review.md` (Gate 6):** completed under the v1 prompt by a separate Claude session and counter-signed by Rick Weakley with disposition PROCEED WITH REVISIONS.
+- ✅ **`ai-use-disclosure.md`:** committed; Tier 3 + Tier 4 hybrid per the v0.0.4 direction-of-intellectual-origin test; per-element accountability table covers every AI-originated framing including those identified in the v1 revision pass.
+- ✅ **`deviations.md`:** committed; formal disclosure of the pre-registration gap and the recommended manuscript revisions (now applied in v1).
+- ✅ **`coi-disclosure_weakley.md`:** committed; ICMJE per-publication disclosure with GitHub added to §2.1 and the 2026 annual snapshot at `coi/2026_founder-disclosure.md` cross-referenced.
+- ✅ **`reproducibility-bundle/` subfolder:** committed with README, PROVENANCE, environment.yml, seeds.json, replication-log.md, Makefile, code/README, data/README. **Bundle is in stub state** — code and data are pointers to private source repos at pinned SHAs; real `make replicate` and one end-to-end run remain as Gate-7 closure work before arXiv preprint posting (see `replication-log.md` for the closure-path enumeration).
+- ✅ **`neurips-checklist.md`:** committed; Tier-M ML compliance walkthrough with 11 SATISFIED / 5 partial-TODO / 4 N/A. Item 7 (statistical significance) is the load-bearing TODO for any TMLR/NeurIPS submission.
+- ✅ **v1 manuscript revisions per Gate-6 categories 1, 4, 5:** landed in this current state (this commit and prior). The manuscript now reads `MANUSCRIPT.md`; Gate-6 categories 2 (full bundle finalisation) and 3 (statistical significance) are deferred per the counter-signed Gate-6 finding to pre-arXiv and pre-TMLR respectively.
 
-These gaps are tracked for closure as the publication is prepared for arXiv /
-TMLR submission. The pack is committed in its current state to make the gap
-visible and to begin Gate 6 internal review against the v1 prompt.
+Remaining open closures before any external (arXiv) preprint posting, per the Gate-6 counter-signature's required-actions list:
+
+- Gate-7 reproducibility-bundle finalisation (vendor or submodule source code; real `make replicate`; one end-to-end run logged; lift seeds.json TODOs).
+- Prompt-archive deposition at this folder's `prompts/` subdirectory (requires Cowork-session export).
+- ORCID registration.
+
+Remaining open closures before TMLR submission, per the Gate-6 counter-signature:
+
+- v2 manuscript additions: statistical-significance reporting (95% CIs, binomial tests, Bonferroni/BH-FDR), real bibliography (proper .bib with DOIs), figures (κ forest plot; inter-channel cosine heatmap; refusal-cosine scatter).
 
 ## Provenance
 - Validation date: 2026-05-23 → 2026-05-24
