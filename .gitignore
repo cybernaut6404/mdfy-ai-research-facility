@@ -130,3 +130,4 @@ secrets/
 # Cowork / Claude session artifacts (in case work happens through Cowork)
 .cowork/
 .claude/
+.gstack/
