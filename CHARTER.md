@@ -142,6 +142,7 @@ mdfy-ai-research-facility/
 │   └── YYYY_founder-disclosure.md
 │
 ├── templates/                          # the templates referenced by this charter
+│   ├── publication-folder_GUIDE.md     # operator's guide to publication-folder structure
 │   ├── pre-registration_TEMPLATE.md
 │   ├── exploration-plan_TEMPLATE.md
 │   ├── scoping-memo_TEMPLATE.md
@@ -150,7 +151,19 @@ mdfy-ai-research-facility/
 │   ├── lab-notebook-entry_TEMPLATE.md
 │   ├── paper-README_TEMPLATE.md
 │   ├── coi-disclosure_TEMPLATE.md
-│   └── internal-review-prompt_v1.md    # hardened Gate-6 review prompt
+│   ├── deviations_TEMPLATE.md          # pre-registration-deviations document (Tier C/E required, others optional)
+│   ├── neurips-checklist_TEMPLATE.md   # NeurIPS Paper Checklist for Tier M ML work
+│   ├── internal-review-prompt_v1.md    # hardened Gate-6 review prompt
+│   ├── internal-review-counter-signature_TEMPLATE.md   # standalone human counter-signature block
+│   └── reproducibility-bundle_TEMPLATE/                # subfolder structure for publication bundles
+│       ├── README_TEMPLATE.md
+│       ├── PROVENANCE_TEMPLATE.md
+│       ├── environment_TEMPLATE.yml
+│       ├── seeds_TEMPLATE.json
+│       ├── replication-log_TEMPLATE.md
+│       ├── Makefile_TEMPLATE
+│       ├── code/README_TEMPLATE.md
+│       └── data/README_TEMPLATE.md
 │
 └── references/                         # the unit's master bibliography
     └── references_v0.md                # standards & methods references
