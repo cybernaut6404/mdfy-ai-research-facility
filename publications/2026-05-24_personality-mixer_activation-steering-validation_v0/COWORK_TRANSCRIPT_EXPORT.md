@@ -23,7 +23,7 @@ Two distinct Cowork sessions touched this publication:
 
 **When:** 2026-05-24 afternoon, after unit adoption (v0.0.3-charter founding commit).
 **Where:** Claude Code session on the MacBook (Rick's primary research machine).
-**What it produced:** the bootstrap commits, the personality-mixer pack intake commit `febd1d8`, the Gate-6 internal-review.md (via a sub-agent), the Gate-6 counter-signature in `6f62989`, the v1 manuscript revisions in `ef45b3b`, the Zenodo DOI integration, the ORCID + email canonicalization, the autonomous-mode pre-arXiv work (stats analysis, figures, bibliography, real `make replicate`, this very file).
+**What it produced:** the bootstrap commits, the personality-mixer pack intake commit `827669c`, the Gate-6 internal-review.md (via a sub-agent), the Gate-6 counter-signature in `6f62989`, the v1 manuscript revisions in `ef45b3b`, the Zenodo DOI integration in `d65380a`, the ORCID + email canonicalization in `d67845f`, the autonomous-mode pre-arXiv work (stats analysis, figures, bibliography, real `make replicate`) in `49490e9`, and this very checkpoint commit.
 **AI model used:** `claude-opus-4-7-1m`.
 **Tier classification:** publication-touching session.
 **Disposition:** Tier 3 + Tier 4 (the v1 manuscript-revision content includes Tier 4 framings — softened verbs, alternative-explanations enumeration for sadism, Broader Impacts subsection content; documented in `ai-use-disclosure.md` §2.3 with v1-revision annotations).

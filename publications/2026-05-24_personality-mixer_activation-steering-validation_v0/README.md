@@ -39,9 +39,9 @@ installed.
 ## Unit-compliance status (v0.0.4 charter)
 
 This pack pre-dates the unit's adoption (v0.0.3-charter on 2026-05-24) and the
-v0.0.4 amendments. The intake commit (febd1d8, plus the Gate-6 counter-signature
-in 6f62989, plus the v1 revision landing in this current state) closed most of
-the v0.0.4-charter compliance gaps. Status per artifact:
+v0.0.4 amendments. The intake commit (827669c, plus the Gate-6 counter-signature
+in 6f62989, plus the v1 revision in ef45b3b, plus the v1+ pre-arXiv work in
+49490e9) closed most of the v0.0.4-charter compliance gaps. Status per artifact:
 
 - ✅ **Gate-1 idea-capture entry:** `notebooks/2026/05/2026-05-24_personality-mixer-paper-intake.md` (committed at intake).
 - ❌ **Gate-2 Scoping Memo:** absent; work pre-dates this gate. Disclosed in `deviations.md` §1.
