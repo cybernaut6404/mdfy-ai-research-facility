@@ -29,8 +29,17 @@
 - `manuscript.md` (or `.tex`) — manuscript source.
 - `reproducibility-bundle/` — code, data, environment, seeds, prompts, provenance.
 - `ai-use-disclosure.md` — full AI-use record per `AI_USE_POLICY.md`.
+- `internal-review.md` — the Gate 6 internal review record (under the v1 prompt).
+- `deviations.md` — deviations from the pre-registration or exploration plan, if any (Tier C: required even if empty; other tiers: required where the work had a Gate-3 plan).
+- `coi-disclosure_<author>.md` — per-publication ICMJE disclosure of interest for each author.
 - `correspondence/` — review correspondence, journal letters, response-to-reviewers.
-- `internal-review.md` — the Gate 6 internal review record.
+
+Compliance artifacts (include where the publication's tier and study type call for them; see the *Compliance artifacts* section of `templates/reproducibility-bundle_CHECKLIST.md` for the canonical list):
+
+- `neurips-checklist.md` — Tier C ML work.
+- `scribe-checklist.md` — Tier C / Tier E self-experimentation and other single-case experimental designs.
+- `model-card.md` — Tier M, where a model is released.
+- `prisma-checklist.md` plus `prisma-flow.[png|svg|pdf]` — Tier T systematic reviews and meta-analyses.
 
 ## How to reproduce
 

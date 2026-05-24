@@ -21,6 +21,11 @@ Open `CHARTER.md`. The v0 founding decisions are already baked in (see §18 for 
 ```
 cd "/Users/richardweakley/ai-workspace/mdfy-ai-research-facility"
 git init
+# CHARTER §6/§19 require the protected branch to be named `main`. If your git
+# defaults to `master` (or anything else), rename before the founding commit:
+git branch -m main 2>/dev/null || true
+# (Alternative: set the default once globally so you never have to think about
+# this again: `git config --global init.defaultBranch main`.)
 git add .
 git commit -m "Founding commit: mdfy-ai-research-facility v0.0.3-charter"
 git tag -a v0.0.3-charter -m "Charter v0.0.3 adoption — scaffold complete (LICENSE, CI, review prompt v1, worked-example DEMO)"

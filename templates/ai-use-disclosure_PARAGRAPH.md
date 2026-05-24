@@ -11,7 +11,17 @@
 
 ## Internal review disclosure (where applicable)
 
-> *Internal Review.* Internal review of this manuscript against the unit's tier-specific standards was performed by [AI SYSTEM, MODEL VERSION] under a structured review prompt (committed at [PATH]) and counter-signed by [HUMAN REVIEWER]. This arrangement reflects v0 of the unit's governance and is acknowledged as a limitation; see Charter §16.
+> *Internal Review.* Internal review of this manuscript against the unit's tier-specific standards was performed by [AI SYSTEM, MODEL VERSION] under the structured review prompt at `templates/internal-review-prompt_v1.md` and counter-signed by [HUMAN REVIEWER]. This arrangement reflects v0 of the unit's governance and is acknowledged as a limitation; see Charter §16.
+
+## Tier 4 accountability statement (where applicable)
+
+Tier 4 disclosure (per `AI_USE_POLICY.md`) requires an explicit per-element accountability statement for each AI-originated intellectual contribution that the human author elected to accept into the work. Use this block once per AI-originated element; omit the section entirely for Tier 1/2/3 work.
+
+> *Tier 4 accountability.* The following intellectual contributions in this manuscript were originated by [AI SYSTEM, MODEL VERSION] and were not specified by the human author in advance. The named human author has reviewed each, endorses each as their own published claim, and takes accountability for it under ICMJE authorship criterion 4.
+>
+> | Element | Where it appears | Originated by | Accepted by (human author) |
+> |---------|------------------|---------------|----------------------------|
+> | [hypothesis / interpretation / framing / methodological choice] | [§/page] | Claude [model] | [NAME] |
 
 ---
 
