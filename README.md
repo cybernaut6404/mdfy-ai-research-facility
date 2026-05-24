@@ -1,5 +1,7 @@
 # mdfy-ai-research-facility
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20365321.svg)](https://doi.org/10.5281/zenodo.20365321)
+
 > An internal AI research unit operating to publication-grade standards.
 
 This repository is the central research function shared across all of the founder's project repositories. Project repos produce experiments and code; this repo publishes, archives, and certifies the resulting research under the `mdfy-ai-research-facility` name.
@@ -24,7 +26,16 @@ This repository is the central research function shared across all of the founde
 
 ## How to cite this repository
 
-See [`CITATION.cff`](./CITATION.cff). For a specific publication, cite the Zenodo DOI listed in that publication's README.
+To cite the unit itself (resolves to the latest charter version):
+
+> Weakley, R. (2026). *mdfy-ai-research-facility Charter & Operating Manual.* Zenodo. https://doi.org/10.5281/zenodo.20365321
+
+To cite a specific charter version:
+
+- v0.0.4-charter (current): https://doi.org/10.5281/zenodo.20365323
+- v0.0.3-charter (founding): https://doi.org/10.5281/zenodo.20365322
+
+Full citation metadata in [`CITATION.cff`](./CITATION.cff). For a specific publication produced by the unit, cite that publication's own Zenodo DOI (listed in the publication's folder README).
 
 ## Dependencies & tooling disclosure
 

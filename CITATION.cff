@@ -6,12 +6,23 @@ type: software
 authors:
   - family-names: "Weakley"
     given-names: "Rick"
-    email: "rick@minorgod.com"
+    email: "rick@mdfy.co.uk"
 repository-code: "https://github.com/cybernaut6404/mdfy-ai-research-facility"
 url: "https://github.com/cybernaut6404/mdfy-ai-research-facility"
 license: Apache-2.0
 version: "0.0.4-charter"
 date-released: "2026-05-24"
+doi: "10.5281/zenodo.20365321"
+identifiers:
+  - description: "Concept DOI (resolves to the latest version of this charter; cite this for the unit itself)"
+    type: doi
+    value: "10.5281/zenodo.20365321"
+  - description: "Version DOI for v0.0.3-charter (founding commit)"
+    type: doi
+    value: "10.5281/zenodo.20365322"
+  - description: "Version DOI for v0.0.4-charter (first amendment; last v1 open question closed)"
+    type: doi
+    value: "10.5281/zenodo.20365323"
 keywords:
   - artificial-intelligence
   - research-unit

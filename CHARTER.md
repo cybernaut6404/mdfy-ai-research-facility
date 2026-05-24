@@ -346,4 +346,4 @@ A worked-example publication folder at `publications/2026-05-24_example_demo-pub
 ---
 
 *Cite this charter as:*
-Weakley, R. (2026). *mdfy-ai-research-facility Charter & Operating Manual, v0.0.4.* [Internal research-unit charter, founding session + bootstrap amendment, 2026-05-24].
+Weakley, R. (2026). *mdfy-ai-research-facility Charter & Operating Manual, v0.0.4.* Zenodo. https://doi.org/10.5281/zenodo.20365323 (version DOI). Concept DOI (resolves to latest version): https://doi.org/10.5281/zenodo.20365321. Source: https://github.com/cybernaut6404/mdfy-ai-research-facility.
