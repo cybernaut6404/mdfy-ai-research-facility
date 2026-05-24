@@ -13,8 +13,8 @@
 
 - **Name:** Rick Weakley
 - **Affiliation:** `mdfy-ai-research-facility` (independent research unit; no external institutional affiliation)
-- **ORCID:** [placeholder; to be populated at first real publication]
-- **Email:** rick@minorgod.com
+- **ORCID:** [0009-0004-0799-1756](https://orcid.org/0009-0004-0799-1756)
+- **Email:** rick@mdfy.co.uk
 
 ## 2. Relationships and activities — past 36 months
 

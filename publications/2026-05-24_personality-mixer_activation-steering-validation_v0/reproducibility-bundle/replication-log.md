@@ -83,7 +83,7 @@ independent third party), the entry below template is appended:
 - GPU: Modal L4 / local GPU / CPU-only
 - Environment hash: SHA256 of the resolved environment lockfile
 - Modal account: cybernaut6404 / other
-- Anthropic account: rick@minorgod.com / other
+- Anthropic account: rick@mdfy.co.uk / other
 - Run wall-clock time: HH:MM
 - Run cost: $X Modal + $Y Anthropic
 - κ deltas (per channel, recovered vs published):

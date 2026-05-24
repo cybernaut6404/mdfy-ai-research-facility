@@ -18,7 +18,7 @@ This DEMO publication exists to demonstrate the structural conventions of a fini
 
 ## Authors
 
-Rick Weakley (`mdfy-ai-research-facility`). ORCID: [placeholder].
+Rick Weakley (`mdfy-ai-research-facility`). ORCID: [0009-0004-0799-1756](https://orcid.org/0009-0004-0799-1756).
 
 ## Cite this work
 
@@ -59,4 +59,4 @@ Content, figures, data: CC-BY-4.0 (inherits from repo `LICENSE-CONTENT`).
 
 ## Contact
 
-Rick Weakley — rick@minorgod.com.
+Rick Weakley — rick@mdfy.co.uk.

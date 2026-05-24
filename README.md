@@ -54,4 +54,4 @@ Code released under Apache-2.0 unless otherwise noted (see [`LICENSE-CODE`](./LI
 
 ## Contact
 
-Rick Weakley — rick@minorgod.com
+Rick Weakley — rick@mdfy.co.uk · ORCID [0009-0004-0799-1756](https://orcid.org/0009-0004-0799-1756)

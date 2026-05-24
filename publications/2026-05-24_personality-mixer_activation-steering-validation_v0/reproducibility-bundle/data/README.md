@@ -157,6 +157,6 @@ artifact. This is Gate-7 TODO.
 
 Same as `code/README.md` §"Access procedure for the current state": a
 third party may request access to the source repos at the pinned SHAs
-via `rick@minorgod.com`. For v0 (arXiv target), this is acceptable. For
+via `rick@mdfy.co.uk`. For v0 (arXiv target), this is acceptable. For
 Tier 2+ submission, the data must be made public alongside the source
 code.

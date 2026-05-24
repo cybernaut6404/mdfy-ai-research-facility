@@ -91,7 +91,7 @@ option 1 or option 2.
 
 A third party wishing to verify the κ values can:
 
-1. Contact the author at rick@minorgod.com requesting read access to the
+1. Contact the author at rick@mdfy.co.uk requesting read access to the
    named repos at the pinned SHAs.
 2. The author will grant time-limited read access to a clone of each
    repo at the pinned SHA, with a written usage agreement bounded by the

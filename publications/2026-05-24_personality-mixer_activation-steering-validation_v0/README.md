@@ -58,7 +58,7 @@ Remaining open closures before any external (arXiv) preprint posting, per the Ga
 
 - Gate-7 reproducibility-bundle finalisation (vendor or submodule source code; real `make replicate`; one end-to-end run logged; lift seeds.json TODOs).
 - Prompt-archive deposition at this folder's `prompts/` subdirectory (requires Cowork-session export).
-- ORCID registration.
+- ~~ORCID registration~~ ✅ done 2026-05-24: [0009-0004-0799-1756](https://orcid.org/0009-0004-0799-1756).
 
 Remaining open closures before TMLR submission, per the Gate-6 counter-signature:
 

@@ -8,7 +8,7 @@
 **Last open question closed (CI maturity-progression triggers ratified; Tier 3/4 boundary sharpened; compliance-artifact paths fixed; transcript-mirror procedure defined):** 2026-05-24 (v0.0.4)
 **Source workspace:** founding session (Cowork) + bootstrap session
 **Status:** v0.0.4 — in effect (latest tag `v0.0.4-charter`; founding-commit tag `v0.0.3-charter` retained)
-**Document owner:** Rick Weakley (rick@minorgod.com)
+**Document owner:** Rick Weakley (rick@mdfy.co.uk · ORCID [0009-0004-0799-1756](https://orcid.org/0009-0004-0799-1756))
 
 ---
 

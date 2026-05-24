@@ -7,6 +7,7 @@ authors:
   - family-names: "Weakley"
     given-names: "Rick"
     email: "rick@mdfy.co.uk"
+    orcid: "https://orcid.org/0009-0004-0799-1756"
 repository-code: "https://github.com/cybernaut6404/mdfy-ai-research-facility"
 url: "https://github.com/cybernaut6404/mdfy-ai-research-facility"
 license: Apache-2.0

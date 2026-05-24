@@ -14,9 +14,8 @@
 - **Name:** Rick Weakley
 - **Affiliation:** `mdfy-ai-research-facility` (the unit). Primary affiliation: independent researcher (no institutional employment relevant to research conducted under the unit's name).
 - **GitHub account:** `cybernaut6404` (https://github.com/cybernaut6404)
-- **Git commit email:** rick@mdfy.co.uk
-- **Contact email:** rick@minorgod.com
-- **ORCID:** *not yet registered* — to be obtained before any external submission. Tracked as an open closure on the unit's first peer-reviewed-venue path (per ROADMAP_TO_TOP_VENUES.md of the personality-mixer publication, expected to land before TMLR submission ~1 month from this disclosure date).
+- **Email (canonical for research-unit identity):** rick@mdfy.co.uk
+- **ORCID:** [0009-0004-0799-1756](https://orcid.org/0009-0004-0799-1756) — registered 2026-05-24.
 
 ## 2. Relationships and activities — past 36 months
 
@@ -97,4 +96,4 @@ I have read this disclosure and confirm it is complete and accurate as of the da
 
 **Signed:** Rick Weakley
 **Date:** 2026-05-24
-**Account:** cybernaut6404 (GitHub) / rick@mdfy.co.uk (git commit identity) / rick@minorgod.com (contact)
+**Account:** cybernaut6404 (GitHub) / rick@mdfy.co.uk (canonical email; git commit identity; ORCID-linked) / ORCID 0009-0004-0799-1756
